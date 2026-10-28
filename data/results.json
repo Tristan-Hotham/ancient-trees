@@ -1,0 +1,2545 @@
+{
+ "counts": {
+  "osm_trees_extract": 70394,
+  "notable": 1626,
+  "named": 716,
+  "denotation": 906,
+  "age_tag": 20,
+  "wikidata": 43,
+  "girth3": 139,
+  "girth_any_ok": 150,
+  "old_sign": 276,
+  "species_known": 579,
+  "species_known_share": 0.3561,
+  "natural_monument": 239,
+  "landmark": 656,
+  "extract_girth_tagged": 2391,
+  "extract_girth_bulk": 1498,
+  "extract_girth_ok": 775,
+  "extract_age_class": 65827,
+  "worship": 38811,
+  "royal_forests": 38,
+  "deer_park_polygons": 76,
+  "deer_park_km2": 66.8874,
+  "deer_park_trees": 3,
+  "deer_park_old": 0,
+  "old_sign_share": 0.1697,
+  "extract_not_notable": 68768,
+  "species_from_name": 161
+ },
+ "country": {
+  "England": {
+   "n": 1497,
+   "old": 245,
+   "share": 0.9207
+  },
+  "Scotland": {
+   "n": 92,
+   "old": 23,
+   "share": 0.0566
+  },
+  "Wales": {
+   "n": 27,
+   "old": 7,
+   "share": 0.0166
+  },
+  "Northern Ireland": {
+   "n": 10,
+   "old": 1,
+   "share": 0.0062
+  }
+ },
+ "regions": [
+  {
+   "region": "West Midlands",
+   "n": 254,
+   "old": 40,
+   "yew": 0,
+   "oak": 49,
+   "share": 0.1562
+  },
+  {
+   "region": "South East",
+   "n": 240,
+   "old": 65,
+   "yew": 9,
+   "oak": 59,
+   "share": 0.1476
+  },
+  {
+   "region": "London",
+   "n": 231,
+   "old": 39,
+   "yew": 2,
+   "oak": 39,
+   "share": 0.1421
+  },
+  {
+   "region": "South West",
+   "n": 212,
+   "old": 29,
+   "yew": 4,
+   "oak": 43,
+   "share": 0.1304
+  },
+  {
+   "region": "Yorkshire and the Humber",
+   "n": 193,
+   "old": 6,
+   "yew": 0,
+   "oak": 8,
+   "share": 0.1187
+  },
+  {
+   "region": "North East",
+   "n": 132,
+   "old": 1,
+   "yew": 0,
+   "oak": 0,
+   "share": 0.0812
+  },
+  {
+   "region": "Eastern",
+   "n": 126,
+   "old": 24,
+   "yew": 1,
+   "oak": 26,
+   "share": 0.0775
+  },
+  {
+   "region": "Scotland",
+   "n": 92,
+   "old": 23,
+   "yew": 6,
+   "oak": 14,
+   "share": 0.0566
+  },
+  {
+   "region": "East Midlands",
+   "n": 85,
+   "old": 31,
+   "yew": 1,
+   "oak": 22,
+   "share": 0.0523
+  },
+  {
+   "region": "Wales",
+   "n": 27,
+   "old": 7,
+   "yew": 7,
+   "oak": 6,
+   "share": 0.0166
+  },
+  {
+   "region": "North West",
+   "n": 24,
+   "old": 10,
+   "yew": 1,
+   "oak": 5,
+   "share": 0.0148
+  },
+  {
+   "region": "Northern Ireland",
+   "n": 10,
+   "old": 1,
+   "yew": 1,
+   "oak": 2,
+   "share": 0.0062
+  }
+ ],
+ "top_counties": [
+  {
+   "county": "Greater London",
+   "n": 231,
+   "old": 39
+  },
+  {
+   "county": "Barnsley",
+   "n": 160,
+   "old": 1
+  },
+  {
+   "county": "Northumberland",
+   "n": 126,
+   "old": 0
+  },
+  {
+   "county": "Hampshire",
+   "n": 79,
+   "old": 45
+  },
+  {
+   "county": "Somerset",
+   "n": 75,
+   "old": 3
+  },
+  {
+   "county": "Worcestershire",
+   "n": 73,
+   "old": 0
+  },
+  {
+   "county": "Coventry",
+   "n": 64,
+   "old": 3
+  },
+  {
+   "county": "Oxfordshire",
+   "n": 45,
+   "old": 2
+  },
+  {
+   "county": "Gloucestershire",
+   "n": 37,
+   "old": 2
+  },
+  {
+   "county": "Norfolk",
+   "n": 31,
+   "old": 6
+  },
+  {
+   "county": "Cambridgeshire",
+   "n": 30,
+   "old": 8
+  },
+  {
+   "county": "Staffordshire",
+   "n": 29,
+   "old": 2
+  }
+ ],
+ "grid": {
+  "squares": 428,
+  "top10_share": 0.4176,
+  "top10_n": 679,
+  "top1_n": 158,
+  "half_squares": 18,
+  "single_tree_squares": 257,
+  "top1_place": "Hood Green",
+  "top1_county": "Barnsley"
+ },
+ "habits": {
+  "n": 655,
+  "share": 0.4028,
+  "top": [
+   {
+    "county": "Barnsley",
+    "denotation": "landmark",
+    "n": 158
+   },
+   {
+    "county": "Northumberland",
+    "denotation": "landmark",
+    "n": 121
+   },
+   {
+    "county": "Worcestershire",
+    "denotation": "landmark",
+    "n": 68
+   },
+   {
+    "county": "Somerset",
+    "denotation": "landmark",
+    "n": 64
+   },
+   {
+    "county": "Coventry",
+    "denotation": "natural_monument",
+    "n": 59
+   }
+  ]
+ },
+ "species": [
+  {
+   "group": "oak",
+   "n": 273,
+   "old": 116,
+   "share": 0.4715,
+   "old_share": 0.511,
+   "girth_n": 61,
+   "girth_median": 4.3,
+   "girth_max": 13.18
+  },
+  {
+   "group": "giant redwoods",
+   "n": 40,
+   "old": 28,
+   "share": 0.0691,
+   "old_share": 0.1233,
+   "girth_n": 6,
+   "girth_median": 5.75,
+   "girth_max": 9.0
+  },
+  {
+   "group": "other",
+   "n": 34,
+   "old": 9,
+   "share": 0.0587,
+   "old_share": 0.0396,
+   "girth_n": 6,
+   "girth_median": 3.025,
+   "girth_max": 4.0
+  },
+  {
+   "group": "yew",
+   "n": 32,
+   "old": 14,
+   "share": 0.0553,
+   "old_share": 0.0617,
+   "girth_n": 3,
+   "girth_median": 5.7,
+   "girth_max": 8.86
+  },
+  {
+   "group": "beech",
+   "n": 28,
+   "old": 9,
+   "share": 0.0484,
+   "old_share": 0.0396,
+   "girth_n": 5,
+   "girth_median": 4.0,
+   "girth_max": 5.18
+  },
+  {
+   "group": "pines and other conifers",
+   "n": 27,
+   "old": 7,
+   "share": 0.0466,
+   "old_share": 0.0308,
+   "girth_n": 6,
+   "girth_median": 3.65,
+   "girth_max": 9.4
+  },
+  {
+   "group": "plane",
+   "n": 24,
+   "old": 6,
+   "share": 0.0415,
+   "old_share": 0.0264,
+   "girth_n": 5,
+   "girth_median": 4.0,
+   "girth_max": 9.2
+  },
+  {
+   "group": "birch, alder and willow",
+   "n": 19,
+   "old": 7,
+   "share": 0.0328,
+   "old_share": 0.0308,
+   "girth_n": 2,
+   "girth_median": 3.5,
+   "girth_max": 3.7
+  },
+  {
+   "group": "ash",
+   "n": 16,
+   "old": 3,
+   "share": 0.0276,
+   "old_share": 0.0132,
+   "girth_n": 1,
+   "girth_median": 4.5,
+   "girth_max": 4.5
+  },
+  {
+   "group": "cedar",
+   "n": 14,
+   "old": 6,
+   "share": 0.0242,
+   "old_share": 0.0264,
+   "girth_n": 2,
+   "girth_median": 7.29,
+   "girth_max": 8.3
+  },
+  {
+   "group": "sycamore and maples",
+   "n": 12,
+   "old": 2,
+   "share": 0.0207,
+   "old_share": 0.0088,
+   "girth_n": 1,
+   "girth_median": 4.0,
+   "girth_max": 4.0
+  },
+  {
+   "group": "lime",
+   "n": 12,
+   "old": 5,
+   "share": 0.0207,
+   "old_share": 0.022,
+   "girth_n": 3,
+   "girth_median": 3.0,
+   "girth_max": 3.0
+  },
+  {
+   "group": "sweet chestnut",
+   "n": 11,
+   "old": 6,
+   "share": 0.019,
+   "old_share": 0.0264,
+   "girth_n": 2,
+   "girth_median": 11.05,
+   "girth_max": 12.5
+  },
+  {
+   "group": "elm",
+   "n": 10,
+   "old": 1,
+   "share": 0.0173,
+   "old_share": 0.0044,
+   "girth_n": 0,
+   "girth_median": null,
+   "girth_max": null
+  },
+  {
+   "group": "hawthorn",
+   "n": 8,
+   "old": 1,
+   "share": 0.0138,
+   "old_share": 0.0044,
+   "girth_n": 0,
+   "girth_median": null,
+   "girth_max": null
+  },
+  {
+   "group": "holly",
+   "n": 8,
+   "old": 0,
+   "share": 0.0138,
+   "old_share": 0.0,
+   "girth_n": 5,
+   "girth_median": 1.0,
+   "girth_max": 1.3
+  },
+  {
+   "group": "fruit trees",
+   "n": 7,
+   "old": 6,
+   "share": 0.0121,
+   "old_share": 0.0264,
+   "girth_n": 1,
+   "girth_median": 6.0,
+   "girth_max": 6.0
+  },
+  {
+   "group": "horse chestnut",
+   "n": 4,
+   "old": 1,
+   "share": 0.0069,
+   "old_share": 0.0044,
+   "girth_n": 1,
+   "girth_median": 7.2,
+   "girth_max": 7.2
+  }
+ ],
+ "sp": {
+  "oak": {
+   "group": "oak",
+   "n": 273,
+   "old": 116,
+   "share": 0.4715,
+   "old_share": 0.511,
+   "girth_n": 61,
+   "girth_median": 4.3,
+   "girth_max": 13.18
+  },
+  "giant redwoods": {
+   "group": "giant redwoods",
+   "n": 40,
+   "old": 28,
+   "share": 0.0691,
+   "old_share": 0.1233,
+   "girth_n": 6,
+   "girth_median": 5.75,
+   "girth_max": 9.0
+  },
+  "other": {
+   "group": "other",
+   "n": 34,
+   "old": 9,
+   "share": 0.0587,
+   "old_share": 0.0396,
+   "girth_n": 6,
+   "girth_median": 3.025,
+   "girth_max": 4.0
+  },
+  "yew": {
+   "group": "yew",
+   "n": 32,
+   "old": 14,
+   "share": 0.0553,
+   "old_share": 0.0617,
+   "girth_n": 3,
+   "girth_median": 5.7,
+   "girth_max": 8.86
+  },
+  "beech": {
+   "group": "beech",
+   "n": 28,
+   "old": 9,
+   "share": 0.0484,
+   "old_share": 0.0396,
+   "girth_n": 5,
+   "girth_median": 4.0,
+   "girth_max": 5.18
+  },
+  "pines and other conifers": {
+   "group": "pines and other conifers",
+   "n": 27,
+   "old": 7,
+   "share": 0.0466,
+   "old_share": 0.0308,
+   "girth_n": 6,
+   "girth_median": 3.65,
+   "girth_max": 9.4
+  },
+  "plane": {
+   "group": "plane",
+   "n": 24,
+   "old": 6,
+   "share": 0.0415,
+   "old_share": 0.0264,
+   "girth_n": 5,
+   "girth_median": 4.0,
+   "girth_max": 9.2
+  },
+  "birch, alder and willow": {
+   "group": "birch, alder and willow",
+   "n": 19,
+   "old": 7,
+   "share": 0.0328,
+   "old_share": 0.0308,
+   "girth_n": 2,
+   "girth_median": 3.5,
+   "girth_max": 3.7
+  },
+  "ash": {
+   "group": "ash",
+   "n": 16,
+   "old": 3,
+   "share": 0.0276,
+   "old_share": 0.0132,
+   "girth_n": 1,
+   "girth_median": 4.5,
+   "girth_max": 4.5
+  },
+  "cedar": {
+   "group": "cedar",
+   "n": 14,
+   "old": 6,
+   "share": 0.0242,
+   "old_share": 0.0264,
+   "girth_n": 2,
+   "girth_median": 7.29,
+   "girth_max": 8.3
+  },
+  "sycamore and maples": {
+   "group": "sycamore and maples",
+   "n": 12,
+   "old": 2,
+   "share": 0.0207,
+   "old_share": 0.0088,
+   "girth_n": 1,
+   "girth_median": 4.0,
+   "girth_max": 4.0
+  },
+  "lime": {
+   "group": "lime",
+   "n": 12,
+   "old": 5,
+   "share": 0.0207,
+   "old_share": 0.022,
+   "girth_n": 3,
+   "girth_median": 3.0,
+   "girth_max": 3.0
+  },
+  "sweet chestnut": {
+   "group": "sweet chestnut",
+   "n": 11,
+   "old": 6,
+   "share": 0.019,
+   "old_share": 0.0264,
+   "girth_n": 2,
+   "girth_median": 11.05,
+   "girth_max": 12.5
+  },
+  "elm": {
+   "group": "elm",
+   "n": 10,
+   "old": 1,
+   "share": 0.0173,
+   "old_share": 0.0044,
+   "girth_n": 0,
+   "girth_median": null,
+   "girth_max": null
+  },
+  "hawthorn": {
+   "group": "hawthorn",
+   "n": 8,
+   "old": 1,
+   "share": 0.0138,
+   "old_share": 0.0044,
+   "girth_n": 0,
+   "girth_median": null,
+   "girth_max": null
+  },
+  "holly": {
+   "group": "holly",
+   "n": 8,
+   "old": 0,
+   "share": 0.0138,
+   "old_share": 0.0,
+   "girth_n": 5,
+   "girth_median": 1.0,
+   "girth_max": 1.3
+  },
+  "fruit trees": {
+   "group": "fruit trees",
+   "n": 7,
+   "old": 6,
+   "share": 0.0121,
+   "old_share": 0.0264,
+   "girth_n": 1,
+   "girth_median": 6.0,
+   "girth_max": 6.0
+  },
+  "horse chestnut": {
+   "group": "horse chestnut",
+   "n": 4,
+   "old": 1,
+   "share": 0.0069,
+   "old_share": 0.0044,
+   "girth_n": 1,
+   "girth_median": 7.2,
+   "girth_max": 7.2
+  }
+ },
+ "species_known_old": 227,
+ "girth_bands": [
+  {
+   "lo": 3,
+   "hi": 4,
+   "n": 44,
+   "oak": 23,
+   "years_lo": 120,
+   "years_hi": 160
+  },
+  {
+   "lo": 4,
+   "hi": 5,
+   "n": 31,
+   "oak": 8,
+   "years_lo": 160,
+   "years_hi": 200
+  },
+  {
+   "lo": 5,
+   "hi": 6,
+   "n": 21,
+   "oak": 6,
+   "years_lo": 200,
+   "years_hi": 240
+  },
+  {
+   "lo": 6,
+   "hi": 8,
+   "n": 14,
+   "oak": 8,
+   "years_lo": 240,
+   "years_hi": 320
+  },
+  {
+   "lo": 8,
+   "hi": 10,
+   "n": 19,
+   "oak": 6,
+   "years_lo": 320,
+   "years_hi": 400
+  },
+  {
+   "lo": 10,
+   "hi": 17,
+   "n": 10,
+   "oak": 8,
+   "years_lo": 400,
+   "years_hi": 680
+  }
+ ],
+ "girth": {
+  "n": 150,
+  "ge3": 139,
+  "ge5": 64,
+  "ge8": 29,
+  "ge10": 10,
+  "median_ge3": 4.5,
+  "mitchell_cm": 2.5,
+  "y3": 120,
+  "y5": 200,
+  "y8": 320,
+  "y10": 400
+ },
+ "biggest": [
+  {
+   "name": "Queen Elizabeth Oak",
+   "group": "oak",
+   "species": "Quercus petraea",
+   "girth": 13.18,
+   "years": 527,
+   "county": "West Sussex",
+   "place": "Lodsworth",
+   "lat": 50.9961,
+   "lon": -0.7006,
+   "osm": "node/3764037057",
+   "forest": null
+  },
+  {
+   "name": "'Cowdray Colossus' Chestnut",
+   "group": "sweet chestnut",
+   "species": "Castanea sativa",
+   "girth": 12.5,
+   "years": 500,
+   "county": "West Sussex",
+   "place": "Lodsworth",
+   "lat": 50.9984,
+   "lon": -0.696,
+   "osm": "node/10315066642",
+   "forest": null
+  },
+  {
+   "name": "Majesty - the Fredville Oak",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 12.36,
+   "years": 494,
+   "county": "Kent",
+   "place": "Frogham",
+   "lat": 51.2154,
+   "lon": 1.231,
+   "osm": "node/8435204890",
+   "forest": null
+  },
+  {
+   "name": "Wyndham's Oak",
+   "group": "oak",
+   "species": "Quercus rubra",
+   "girth": 12.0,
+   "years": 480,
+   "county": "Dorset",
+   "place": "Silton",
+   "lat": 51.0632,
+   "lon": -2.3094,
+   "osm": "node/5966978041",
+   "forest": null
+  },
+  {
+   "name": "Mottisfont Oak",
+   "group": "oak",
+   "species": null,
+   "girth": 11.5,
+   "years": 460,
+   "county": "Hampshire",
+   "place": "Mottisfont",
+   "lat": 51.0478,
+   "lon": -1.5287,
+   "osm": "node/9544648727",
+   "forest": null
+  },
+  {
+   "name": "Big Belly Oak",
+   "group": "oak",
+   "species": "Quercus petraea",
+   "girth": 11.18,
+   "years": 447,
+   "county": "Wiltshire",
+   "place": "Cadley",
+   "lat": 51.4004,
+   "lon": -1.7051,
+   "osm": "node/8209708430",
+   "forest": "Savernake Forest"
+  },
+  {
+   "name": "King of Limbs",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 10.8,
+   "years": 432,
+   "county": "Wiltshire",
+   "place": "The Warren",
+   "lat": 51.3926,
+   "lon": -1.6524,
+   "osm": "node/10004370947",
+   "forest": "Savernake Forest"
+  },
+  {
+   "name": "Cathedral Oak",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 10.4,
+   "years": 416,
+   "county": "Wiltshire",
+   "place": "Cadley",
+   "lat": 51.4105,
+   "lon": -1.7051,
+   "osm": "node/11008373106",
+   "forest": "Savernake Forest"
+  },
+  {
+   "name": "Oak at the Gate of the Dead",
+   "group": "oak",
+   "species": null,
+   "girth": 10.0,
+   "years": 400,
+   "county": "Shropshire",
+   "place": "Bronygarth",
+   "lat": 52.9314,
+   "lon": -3.0953,
+   "osm": "node/10045173247",
+   "forest": null
+  },
+  {
+   "name": "Capon Tree",
+   "group": "oak",
+   "species": "Quercus petraea",
+   "girth": 9.74,
+   "years": 389,
+   "county": "Scottish Borders",
+   "place": "Jedburgh",
+   "lat": 55.4623,
+   "lon": -2.5537,
+   "osm": "node/5122619926",
+   "forest": null
+  },
+  {
+   "name": "Mightiest Conifer in Europe",
+   "group": "pines and other conifers",
+   "species": "Abies alba",
+   "girth": 9.4,
+   "years": 376,
+   "county": "Argyll and Bute",
+   "place": "An Cárn Dubh",
+   "lat": 56.2506,
+   "lon": -4.9413,
+   "osm": "node/10295522944",
+   "forest": null
+  },
+  {
+   "name": "The Great Oak",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 9.25,
+   "years": 370,
+   "county": "County of Herefordshire",
+   "place": "Lower Welson",
+   "lat": 52.1407,
+   "lon": -3.0246,
+   "osm": "node/10767034524",
+   "forest": null
+  },
+  {
+   "name": "'Goliath' Giant Sequoia",
+   "group": "giant redwoods",
+   "species": "Sequoiadendron giganteum",
+   "girth": 9.0,
+   "years": 360,
+   "county": "Hampshire",
+   "place": "Gritnam",
+   "lat": 50.8437,
+   "lon": -1.6225,
+   "osm": "node/9047886510",
+   "forest": "New Forest"
+  },
+  {
+   "name": "Old Man of Calke",
+   "group": "oak",
+   "species": null,
+   "girth": 9.0,
+   "years": 360,
+   "county": "Derbyshire",
+   "place": "Calke",
+   "lat": 52.8023,
+   "lon": -1.4631,
+   "osm": "node/2021833345",
+   "forest": null
+  },
+  {
+   "name": "Giant Sequoia",
+   "group": "giant redwoods",
+   "species": "Sequoiadendron giganteum",
+   "girth": 9.0,
+   "years": 360,
+   "county": "Hampshire",
+   "place": "Gritnam",
+   "lat": 50.8439,
+   "lon": -1.6224,
+   "osm": "node/9047886512",
+   "forest": "New Forest"
+  }
+ ],
+ "big": {
+  "Queen Elizabeth Oak": {
+   "name": "Queen Elizabeth Oak",
+   "group": "oak",
+   "species": "Quercus petraea",
+   "girth": 13.18,
+   "years": 527,
+   "county": "West Sussex",
+   "place": "Lodsworth",
+   "lat": 50.9961,
+   "lon": -0.7006,
+   "osm": "node/3764037057",
+   "forest": null
+  },
+  "'Cowdray Colossus' Chestnut": {
+   "name": "'Cowdray Colossus' Chestnut",
+   "group": "sweet chestnut",
+   "species": "Castanea sativa",
+   "girth": 12.5,
+   "years": 500,
+   "county": "West Sussex",
+   "place": "Lodsworth",
+   "lat": 50.9984,
+   "lon": -0.696,
+   "osm": "node/10315066642",
+   "forest": null
+  },
+  "Majesty - the Fredville Oak": {
+   "name": "Majesty - the Fredville Oak",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 12.36,
+   "years": 494,
+   "county": "Kent",
+   "place": "Frogham",
+   "lat": 51.2154,
+   "lon": 1.231,
+   "osm": "node/8435204890",
+   "forest": null
+  },
+  "Wyndham's Oak": {
+   "name": "Wyndham's Oak",
+   "group": "oak",
+   "species": "Quercus rubra",
+   "girth": 12.0,
+   "years": 480,
+   "county": "Dorset",
+   "place": "Silton",
+   "lat": 51.0632,
+   "lon": -2.3094,
+   "osm": "node/5966978041",
+   "forest": null
+  },
+  "Mottisfont Oak": {
+   "name": "Mottisfont Oak",
+   "group": "oak",
+   "species": null,
+   "girth": 11.5,
+   "years": 460,
+   "county": "Hampshire",
+   "place": "Mottisfont",
+   "lat": 51.0478,
+   "lon": -1.5287,
+   "osm": "node/9544648727",
+   "forest": null
+  },
+  "Big Belly Oak": {
+   "name": "Big Belly Oak",
+   "group": "oak",
+   "species": "Quercus petraea",
+   "girth": 11.18,
+   "years": 447,
+   "county": "Wiltshire",
+   "place": "Cadley",
+   "lat": 51.4004,
+   "lon": -1.7051,
+   "osm": "node/8209708430",
+   "forest": "Savernake Forest"
+  },
+  "King of Limbs": {
+   "name": "King of Limbs",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 10.8,
+   "years": 432,
+   "county": "Wiltshire",
+   "place": "The Warren",
+   "lat": 51.3926,
+   "lon": -1.6524,
+   "osm": "node/10004370947",
+   "forest": "Savernake Forest"
+  },
+  "Cathedral Oak": {
+   "name": "Cathedral Oak",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 10.4,
+   "years": 416,
+   "county": "Wiltshire",
+   "place": "Cadley",
+   "lat": 51.4105,
+   "lon": -1.7051,
+   "osm": "node/11008373106",
+   "forest": "Savernake Forest"
+  },
+  "Oak at the Gate of the Dead": {
+   "name": "Oak at the Gate of the Dead",
+   "group": "oak",
+   "species": null,
+   "girth": 10.0,
+   "years": 400,
+   "county": "Shropshire",
+   "place": "Bronygarth",
+   "lat": 52.9314,
+   "lon": -3.0953,
+   "osm": "node/10045173247",
+   "forest": null
+  },
+  "Capon Tree": {
+   "name": "Capon Tree",
+   "group": "oak",
+   "species": "Quercus petraea",
+   "girth": 9.74,
+   "years": 389,
+   "county": "Scottish Borders",
+   "place": "Jedburgh",
+   "lat": 55.4623,
+   "lon": -2.5537,
+   "osm": "node/5122619926",
+   "forest": null
+  },
+  "Mightiest Conifer in Europe": {
+   "name": "Mightiest Conifer in Europe",
+   "group": "pines and other conifers",
+   "species": "Abies alba",
+   "girth": 9.4,
+   "years": 376,
+   "county": "Argyll and Bute",
+   "place": "An Cárn Dubh",
+   "lat": 56.2506,
+   "lon": -4.9413,
+   "osm": "node/10295522944",
+   "forest": null
+  },
+  "The Great Oak": {
+   "name": "The Great Oak",
+   "group": "oak",
+   "species": "Quercus robur",
+   "girth": 9.25,
+   "years": 370,
+   "county": "County of Herefordshire",
+   "place": "Lower Welson",
+   "lat": 52.1407,
+   "lon": -3.0246,
+   "osm": "node/10767034524",
+   "forest": null
+  },
+  "'Goliath' Giant Sequoia": {
+   "name": "'Goliath' Giant Sequoia",
+   "group": "giant redwoods",
+   "species": "Sequoiadendron giganteum",
+   "girth": 9.0,
+   "years": 360,
+   "county": "Hampshire",
+   "place": "Gritnam",
+   "lat": 50.8437,
+   "lon": -1.6225,
+   "osm": "node/9047886510",
+   "forest": "New Forest"
+  },
+  "Old Man of Calke": {
+   "name": "Old Man of Calke",
+   "group": "oak",
+   "species": null,
+   "girth": 9.0,
+   "years": 360,
+   "county": "Derbyshire",
+   "place": "Calke",
+   "lat": 52.8023,
+   "lon": -1.4631,
+   "osm": "node/2021833345",
+   "forest": null
+  },
+  "Giant Sequoia": {
+   "name": "Giant Sequoia",
+   "group": "giant redwoods",
+   "species": "Sequoiadendron giganteum",
+   "girth": 9.0,
+   "years": 360,
+   "county": "Hampshire",
+   "place": "Gritnam",
+   "lat": 50.8439,
+   "lon": -1.6224,
+   "osm": "node/9047886512",
+   "forest": "New Forest"
+  }
+ },
+ "churchyard_by_group": [
+  {
+   "group": "yew",
+   "n": 176,
+   "within25": 0.1023,
+   "within50": 0.1818,
+   "within100": 0.2045
+  },
+  {
+   "group": "holly",
+   "n": 287,
+   "within25": 0.0,
+   "within50": 0.0488,
+   "within100": 0.101
+  },
+  {
+   "group": "plane",
+   "n": 2846,
+   "within25": 0.0025,
+   "within50": 0.0285,
+   "within100": 0.0956
+  },
+  {
+   "group": "lime",
+   "n": 16115,
+   "within25": 0.0016,
+   "within50": 0.0166,
+   "within100": 0.0694
+  },
+  {
+   "group": "horse chestnut",
+   "n": 2020,
+   "within25": 0.001,
+   "within50": 0.0153,
+   "within100": 0.0436
+  },
+  {
+   "group": "cedar",
+   "n": 66,
+   "within25": 0.0152,
+   "within50": 0.0152,
+   "within100": 0.0758
+  },
+  {
+   "group": "hawthorn",
+   "n": 2218,
+   "within25": 0.0018,
+   "within50": 0.0149,
+   "within100": 0.0419
+  },
+  {
+   "group": "other",
+   "n": 10457,
+   "within25": 0.0017,
+   "within50": 0.0133,
+   "within100": 0.0529
+  },
+  {
+   "group": "sycamore and maples",
+   "n": 10141,
+   "within25": 0.0006,
+   "within50": 0.0115,
+   "within100": 0.0527
+  },
+  {
+   "group": "birch, alder and willow",
+   "n": 4420,
+   "within25": 0.002,
+   "within50": 0.0111,
+   "within100": 0.0654
+  },
+  {
+   "group": "fruit trees",
+   "n": 9834,
+   "within25": 0.0013,
+   "within50": 0.0099,
+   "within100": 0.0448
+  },
+  {
+   "group": "oak",
+   "n": 2747,
+   "within25": 0.0004,
+   "within50": 0.0095,
+   "within100": 0.0572
+  },
+  {
+   "group": "beech",
+   "n": 533,
+   "within25": 0.0,
+   "within50": 0.0075,
+   "within100": 0.0488
+  },
+  {
+   "group": "pines and other conifers",
+   "n": 1257,
+   "within25": 0.0024,
+   "within50": 0.0072,
+   "within100": 0.0446
+  },
+  {
+   "group": "elm",
+   "n": 141,
+   "within25": 0.0,
+   "within50": 0.0071,
+   "within100": 0.0355
+  },
+  {
+   "group": "ash",
+   "n": 3402,
+   "within25": 0.0,
+   "within50": 0.0041,
+   "within100": 0.0412
+  },
+  {
+   "group": "giant redwoods",
+   "n": 59,
+   "within25": 0.0,
+   "within50": 0.0,
+   "within100": 0.0508
+  },
+  {
+   "group": "sweet chestnut",
+   "n": 102,
+   "within25": 0.0,
+   "within50": 0.0,
+   "within100": 0.0294
+  }
+ ],
+ "church": {
+  "m": 50,
+  "yew_n": 176,
+  "yew_within": 32,
+  "yew_share": 0.1818,
+  "other_n": 66645,
+  "other_share": 0.0133,
+  "yew_share25": 0.1023,
+  "yew_share100": 0.2045,
+  "other_share25": 0.0013,
+  "other_share100": 0.0572,
+  "oak_share": 0.0095,
+  "oak_n": 2747,
+  "ratio": 13.6692,
+  "notable_yew_n": 32,
+  "notable_yew_within": 21,
+  "notable_yew_share": 0.6562,
+  "notable_all_share": 0.0283,
+  "notable_oak_share": 0.0037,
+  "notable_yew_old": 14,
+  "yew_kind": {
+   "anglican or catholic": 28,
+   "not tagged": 2,
+   "nonconformist or other": 2
+  },
+  "worship_kind": {
+   "anglican or catholic": 20181,
+   "nonconformist or other": 12316,
+   "not tagged": 6314
+  },
+  "churches_with_yew": 26,
+  "yew_by_country": {
+   "England": {
+    "n": 161,
+    "church": 25
+   },
+   "Wales": {
+    "n": 8,
+    "church": 6
+   },
+   "Scotland": {
+    "n": 7,
+    "church": 1
+   }
+  }
+ },
+ "church_country": {
+  "England": {
+   "churches": 30649,
+   "with_yew": 18,
+   "per1000": 0.5873
+  },
+  "Wales": {
+   "churches": 3121,
+   "with_yew": 7,
+   "per1000": 2.2429
+  },
+  "Scotland": {
+   "churches": 3224,
+   "with_yew": 1,
+   "per1000": 0.3102
+  },
+  "Northern Ireland": {
+   "churches": 1817,
+   "with_yew": 0,
+   "per1000": 0.0
+  }
+ },
+ "forest": {
+  "km": 5,
+  "n_forests": 38,
+  "land_share": 0.0133,
+  "land_km2": 2898,
+  "gb_km2": 218535,
+  "notable_in": 54,
+  "notable_share": 0.0332,
+  "old_in": 13,
+  "old_share": 0.0471,
+  "oak_old_in": 9,
+  "oak_old_n": 116,
+  "oldrate_in": 0.2407,
+  "oldrate_out": 0.1673,
+  "girth3_in": 8,
+  "girth3_share": 0.0576,
+  "ge8_in": 5,
+  "ge8_n": 29,
+  "old_ratio_land": 3.5414,
+  "notable_ratio_land": 2.4962,
+  "extract_share": 0.0717
+ },
+ "forests": [
+  {
+   "forest": "New Forest",
+   "qid": "Q277755",
+   "lat": 50.8631,
+   "lon": -1.6181,
+   "notable": 7,
+   "old": 5,
+   "oaks": 3,
+   "biggest": [
+    "Giant Sequoia",
+    "'Goliath' Giant Sequoia",
+    "Eagle Oak"
+   ]
+  },
+  {
+   "forest": "Savernake Forest",
+   "qid": "Q3402775",
+   "lat": 51.3833,
+   "lon": -1.6833,
+   "notable": 12,
+   "old": 4,
+   "oaks": 10,
+   "biggest": [
+    "Big Belly Oak",
+    "King of Limbs",
+    "Cathedral Oak"
+   ]
+  },
+  {
+   "forest": "Windsor Great Park",
+   "qid": "Q3569306",
+   "lat": 51.4444,
+   "lon": -0.6042,
+   "notable": 8,
+   "old": 1,
+   "oaks": 4,
+   "biggest": []
+  },
+  {
+   "forest": "Sherwood Forest",
+   "qid": "Q919191",
+   "lat": 53.205,
+   "lon": -1.075,
+   "notable": 2,
+   "old": 1,
+   "oaks": 2,
+   "biggest": []
+  },
+  {
+   "forest": "Wirral Peninsula",
+   "qid": "Q1191558",
+   "lat": 53.3,
+   "lon": -3.0,
+   "notable": 1,
+   "old": 1,
+   "oaks": 1,
+   "biggest": []
+  },
+  {
+   "forest": "Arden",
+   "qid": "Q4787912",
+   "lat": 52.4,
+   "lon": -1.8,
+   "notable": 1,
+   "old": 1,
+   "oaks": 1,
+   "biggest": []
+  },
+  {
+   "forest": "Epping Forest",
+   "qid": "Q1347643",
+   "lat": 51.66,
+   "lon": 0.05,
+   "notable": 9,
+   "old": 0,
+   "oaks": 2,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of Dean",
+   "qid": "Q902997",
+   "lat": 51.79,
+   "lon": -2.54,
+   "notable": 3,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Ashdown Forest",
+   "qid": "Q2351129",
+   "lat": 51.0725,
+   "lon": 0.0431,
+   "notable": 2,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Feckenham Forest",
+   "qid": "Q5439874",
+   "lat": 52.26,
+   "lon": -2.02,
+   "notable": 2,
+   "old": 0,
+   "oaks": 2,
+   "biggest": []
+  },
+  {
+   "forest": "Morfe Forest",
+   "qid": "Q15256212",
+   "lat": 52.523,
+   "lon": -2.346,
+   "notable": 1,
+   "old": 0,
+   "oaks": 1,
+   "biggest": []
+  },
+  {
+   "forest": "Cannock Chase",
+   "qid": "Q2936429",
+   "lat": 52.746,
+   "lon": -2.001,
+   "notable": 1,
+   "old": 0,
+   "oaks": 1,
+   "biggest": []
+  },
+  {
+   "forest": "Alice Holt Forest",
+   "qid": "Q4725919",
+   "lat": 51.168,
+   "lon": -0.843,
+   "notable": 1,
+   "old": 0,
+   "oaks": 1,
+   "biggest": []
+  },
+  {
+   "forest": "Duffield Frith",
+   "qid": "Q5312362",
+   "lat": 53.0462,
+   "lon": -1.5525,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of East Derbyshire",
+   "qid": "Q5469169",
+   "lat": 53.0241,
+   "lon": -1.4814,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Woolmer Forest",
+   "qid": "Q8033886",
+   "lat": 51.0834,
+   "lon": -0.857,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Wychwood",
+   "qid": "Q8039567",
+   "lat": 51.851,
+   "lon": -1.513,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Inglewood Forest",
+   "qid": "Q11977232",
+   "lat": 54.7833,
+   "lon": -2.9167,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Whittlewood Forest",
+   "qid": "Q14942361",
+   "lat": 52.0717,
+   "lon": -0.951,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of Galtres",
+   "qid": "Q21030870",
+   "lat": 54.1198,
+   "lon": -1.1897,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Horewell Forest",
+   "qid": "Q21061907",
+   "lat": 52.0996,
+   "lon": -2.1694,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Waltham Forest",
+   "qid": "Q22004641",
+   "lat": 51.64,
+   "lon": 0.065,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "The Wrekin",
+   "qid": "Q2914585",
+   "lat": 52.6692,
+   "lon": -2.5514,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Needwood Forest",
+   "qid": "Q4318564",
+   "lat": 52.81,
+   "lon": -1.76,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Bernwood Forest",
+   "qid": "Q4894620",
+   "lat": 51.795,
+   "lon": -1.105,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Charnwood Forest",
+   "qid": "Q5086584",
+   "lat": 52.7,
+   "lon": -1.25,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Ettrick Forest",
+   "qid": "Q5405055",
+   "lat": 55.5186,
+   "lon": -3.0574,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of Bere",
+   "qid": "Q5469155",
+   "lat": 50.9,
+   "lon": -1.0333,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of Dartmoor",
+   "qid": "Q5469160",
+   "lat": 50.6168,
+   "lon": -3.9674,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of High Peak",
+   "qid": "Q5469173",
+   "lat": 53.3716,
+   "lon": -1.8854,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forest of Pendle",
+   "qid": "Q5469181",
+   "lat": 53.85,
+   "lon": -2.28,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Forests of Mara and Mondrem",
+   "qid": "Q5469284",
+   "lat": 53.205,
+   "lon": -2.667,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Hatfield Forest",
+   "qid": "Q5681377",
+   "lat": 51.8577,
+   "lon": 0.2291,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Exmoor",
+   "qid": "Q593627",
+   "lat": 51.1,
+   "lon": -3.6,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Macclesfield Forest",
+   "qid": "Q6722927",
+   "lat": 53.238,
+   "lon": -2.054,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Rockingham Forest",
+   "qid": "Q7355392",
+   "lat": 52.45,
+   "lon": -0.59,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Salcey Forest",
+   "qid": "Q7403756",
+   "lat": 52.15,
+   "lon": -0.83,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  {
+   "forest": "Wyre Forest",
+   "qid": "Q8040451",
+   "lat": 52.385,
+   "lon": -2.3686,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  }
+ ],
+ "forests_with_old": 6,
+ "fo": {
+  "New Forest": {
+   "forest": "New Forest",
+   "qid": "Q277755",
+   "lat": 50.8631,
+   "lon": -1.6181,
+   "notable": 7,
+   "old": 5,
+   "oaks": 3,
+   "biggest": [
+    "Giant Sequoia",
+    "'Goliath' Giant Sequoia",
+    "Eagle Oak"
+   ]
+  },
+  "Savernake Forest": {
+   "forest": "Savernake Forest",
+   "qid": "Q3402775",
+   "lat": 51.3833,
+   "lon": -1.6833,
+   "notable": 12,
+   "old": 4,
+   "oaks": 10,
+   "biggest": [
+    "Big Belly Oak",
+    "King of Limbs",
+    "Cathedral Oak"
+   ]
+  },
+  "Windsor Great Park": {
+   "forest": "Windsor Great Park",
+   "qid": "Q3569306",
+   "lat": 51.4444,
+   "lon": -0.6042,
+   "notable": 8,
+   "old": 1,
+   "oaks": 4,
+   "biggest": []
+  },
+  "Sherwood Forest": {
+   "forest": "Sherwood Forest",
+   "qid": "Q919191",
+   "lat": 53.205,
+   "lon": -1.075,
+   "notable": 2,
+   "old": 1,
+   "oaks": 2,
+   "biggest": []
+  },
+  "Wirral Peninsula": {
+   "forest": "Wirral Peninsula",
+   "qid": "Q1191558",
+   "lat": 53.3,
+   "lon": -3.0,
+   "notable": 1,
+   "old": 1,
+   "oaks": 1,
+   "biggest": []
+  },
+  "Arden": {
+   "forest": "Arden",
+   "qid": "Q4787912",
+   "lat": 52.4,
+   "lon": -1.8,
+   "notable": 1,
+   "old": 1,
+   "oaks": 1,
+   "biggest": []
+  },
+  "Epping Forest": {
+   "forest": "Epping Forest",
+   "qid": "Q1347643",
+   "lat": 51.66,
+   "lon": 0.05,
+   "notable": 9,
+   "old": 0,
+   "oaks": 2,
+   "biggest": []
+  },
+  "Forest of Dean": {
+   "forest": "Forest of Dean",
+   "qid": "Q902997",
+   "lat": 51.79,
+   "lon": -2.54,
+   "notable": 3,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Ashdown Forest": {
+   "forest": "Ashdown Forest",
+   "qid": "Q2351129",
+   "lat": 51.0725,
+   "lon": 0.0431,
+   "notable": 2,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Feckenham Forest": {
+   "forest": "Feckenham Forest",
+   "qid": "Q5439874",
+   "lat": 52.26,
+   "lon": -2.02,
+   "notable": 2,
+   "old": 0,
+   "oaks": 2,
+   "biggest": []
+  },
+  "Morfe Forest": {
+   "forest": "Morfe Forest",
+   "qid": "Q15256212",
+   "lat": 52.523,
+   "lon": -2.346,
+   "notable": 1,
+   "old": 0,
+   "oaks": 1,
+   "biggest": []
+  },
+  "Cannock Chase": {
+   "forest": "Cannock Chase",
+   "qid": "Q2936429",
+   "lat": 52.746,
+   "lon": -2.001,
+   "notable": 1,
+   "old": 0,
+   "oaks": 1,
+   "biggest": []
+  },
+  "Alice Holt Forest": {
+   "forest": "Alice Holt Forest",
+   "qid": "Q4725919",
+   "lat": 51.168,
+   "lon": -0.843,
+   "notable": 1,
+   "old": 0,
+   "oaks": 1,
+   "biggest": []
+  },
+  "Duffield Frith": {
+   "forest": "Duffield Frith",
+   "qid": "Q5312362",
+   "lat": 53.0462,
+   "lon": -1.5525,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forest of East Derbyshire": {
+   "forest": "Forest of East Derbyshire",
+   "qid": "Q5469169",
+   "lat": 53.0241,
+   "lon": -1.4814,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Woolmer Forest": {
+   "forest": "Woolmer Forest",
+   "qid": "Q8033886",
+   "lat": 51.0834,
+   "lon": -0.857,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Wychwood": {
+   "forest": "Wychwood",
+   "qid": "Q8039567",
+   "lat": 51.851,
+   "lon": -1.513,
+   "notable": 1,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Inglewood Forest": {
+   "forest": "Inglewood Forest",
+   "qid": "Q11977232",
+   "lat": 54.7833,
+   "lon": -2.9167,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Whittlewood Forest": {
+   "forest": "Whittlewood Forest",
+   "qid": "Q14942361",
+   "lat": 52.0717,
+   "lon": -0.951,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forest of Galtres": {
+   "forest": "Forest of Galtres",
+   "qid": "Q21030870",
+   "lat": 54.1198,
+   "lon": -1.1897,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Horewell Forest": {
+   "forest": "Horewell Forest",
+   "qid": "Q21061907",
+   "lat": 52.0996,
+   "lon": -2.1694,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Waltham Forest": {
+   "forest": "Waltham Forest",
+   "qid": "Q22004641",
+   "lat": 51.64,
+   "lon": 0.065,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "The Wrekin": {
+   "forest": "The Wrekin",
+   "qid": "Q2914585",
+   "lat": 52.6692,
+   "lon": -2.5514,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Needwood Forest": {
+   "forest": "Needwood Forest",
+   "qid": "Q4318564",
+   "lat": 52.81,
+   "lon": -1.76,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Bernwood Forest": {
+   "forest": "Bernwood Forest",
+   "qid": "Q4894620",
+   "lat": 51.795,
+   "lon": -1.105,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Charnwood Forest": {
+   "forest": "Charnwood Forest",
+   "qid": "Q5086584",
+   "lat": 52.7,
+   "lon": -1.25,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Ettrick Forest": {
+   "forest": "Ettrick Forest",
+   "qid": "Q5405055",
+   "lat": 55.5186,
+   "lon": -3.0574,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forest of Bere": {
+   "forest": "Forest of Bere",
+   "qid": "Q5469155",
+   "lat": 50.9,
+   "lon": -1.0333,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forest of Dartmoor": {
+   "forest": "Forest of Dartmoor",
+   "qid": "Q5469160",
+   "lat": 50.6168,
+   "lon": -3.9674,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forest of High Peak": {
+   "forest": "Forest of High Peak",
+   "qid": "Q5469173",
+   "lat": 53.3716,
+   "lon": -1.8854,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forest of Pendle": {
+   "forest": "Forest of Pendle",
+   "qid": "Q5469181",
+   "lat": 53.85,
+   "lon": -2.28,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Forests of Mara and Mondrem": {
+   "forest": "Forests of Mara and Mondrem",
+   "qid": "Q5469284",
+   "lat": 53.205,
+   "lon": -2.667,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Hatfield Forest": {
+   "forest": "Hatfield Forest",
+   "qid": "Q5681377",
+   "lat": 51.8577,
+   "lon": 0.2291,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Exmoor": {
+   "forest": "Exmoor",
+   "qid": "Q593627",
+   "lat": 51.1,
+   "lon": -3.6,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Macclesfield Forest": {
+   "forest": "Macclesfield Forest",
+   "qid": "Q6722927",
+   "lat": 53.238,
+   "lon": -2.054,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Rockingham Forest": {
+   "forest": "Rockingham Forest",
+   "qid": "Q7355392",
+   "lat": 52.45,
+   "lon": -0.59,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Salcey Forest": {
+   "forest": "Salcey Forest",
+   "qid": "Q7403756",
+   "lat": 52.15,
+   "lon": -0.83,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  },
+  "Wyre Forest": {
+   "forest": "Wyre Forest",
+   "qid": "Q8040451",
+   "lat": 52.385,
+   "lon": -2.3686,
+   "notable": 0,
+   "old": 0,
+   "oaks": 0,
+   "biggest": []
+  }
+ },
+ "fo_top2_old": 9,
+ "fo_top2": [
+  "New Forest",
+  "Savernake Forest"
+ ],
+ "famous": [
+  {
+   "name": "Fortingall Yew",
+   "species": "yew",
+   "place": "Fortingall, Perthshire",
+   "article": "Fortingall Yew",
+   "girth_ft": 56,
+   "girth_note": "56 ft, measured in 1771; the trunk has since split",
+   "age_text": "2,000 to 3,000 years in some estimates; Forestry and Land Scotland consider it 5,000",
+   "age_lo": 2000,
+   "age_hi": 5000,
+   "churchyard": true,
+   "girth_m": 17.07,
+   "lat": 56.59823,
+   "lon": -4.05093,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 683,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Fortingall_Yew"
+  },
+  {
+   "name": "Llangernyw Yew",
+   "species": "yew",
+   "place": "Llangernyw, Conwy",
+   "article": "Llangernyw Yew",
+   "girth_m": 10.75,
+   "girth_note": "10.75 m at ground level",
+   "age_text": "4,000 to 5,000 years on the churchyard certificate; an alternative view is about 1,500",
+   "age_lo": 1500,
+   "age_hi": 5000,
+   "churchyard": true,
+   "lat": 53.192333,
+   "lon": -3.685068,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 430,
+   "in_osm": false,
+   "source": "https://en.wikipedia.org/wiki/Llangernyw_Yew"
+  },
+  {
+   "name": "Crowhurst Yew",
+   "species": "yew",
+   "place": "Crowhurst, Surrey",
+   "article": "Crowhurst Yew",
+   "girth_ft": 32,
+   "girth_note": "32 ft at 4 ft high, measured in 2013",
+   "age_text": "thought to be about 4,000 years",
+   "age_lo": 4000,
+   "age_hi": 4000,
+   "churchyard": true,
+   "girth_m": 9.75,
+   "lat": 51.20938889,
+   "lon": -0.0105,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 390,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Crowhurst_Yew"
+  },
+  {
+   "name": "Ashbrittle Yew",
+   "species": "yew",
+   "place": "Ashbrittle, Somerset",
+   "article": "Ashbrittle Yew",
+   "girth_note": "not given as a girth",
+   "age_text": "believed to be over 3,000 years",
+   "age_lo": 3000,
+   "age_hi": 3000,
+   "churchyard": true,
+   "lat": 50.983723,
+   "lon": -3.351592,
+   "coord_source": "OpenStreetMap node/7763446085",
+   "mitchell_years": null,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Ashbrittle_Yew"
+  },
+  {
+   "name": "Defynnog Yew",
+   "species": "yew",
+   "place": "Defynnog, Powys",
+   "article": "Defynnog Yew",
+   "girth_note": "not given as a figure",
+   "age_text": "3,018 years by one assessment; more probably around 2,500",
+   "age_lo": 2500,
+   "age_hi": 3018,
+   "churchyard": true,
+   "lat": 51.93972222,
+   "lon": -3.56472222,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": null,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Defynnog_Yew"
+  },
+  {
+   "name": "Ankerwycke Yew",
+   "species": "yew",
+   "place": "near Wraysbury, Berkshire",
+   "article": "Ankerwycke Yew",
+   "girth_m": 8.0,
+   "girth_note": "8 m at 0.3 m high",
+   "age_text": "at least 1,400 years, perhaps as much as 2,500",
+   "age_lo": 1400,
+   "age_hi": 2500,
+   "churchyard": false,
+   "lat": 51.44475,
+   "lon": -0.55651,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 320,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Ankerwycke_Yew"
+  },
+  {
+   "name": "Major Oak",
+   "species": "oak",
+   "place": "Sherwood Forest, Nottinghamshire",
+   "article": "Major Oak",
+   "girth_ft": 33,
+   "girth_note": "33 ft in 1999",
+   "age_text": "between 800 and 1,200 years",
+   "age_lo": 800,
+   "age_hi": 1200,
+   "churchyard": false,
+   "girth_m": 10.06,
+   "lat": 53.20463889,
+   "lon": -1.07244444,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 402,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Major_Oak"
+  },
+  {
+   "name": "Bowthorpe Oak",
+   "species": "oak",
+   "place": "Manthorpe, near Bourne, Lincolnshire",
+   "article": "Bowthorpe Oak",
+   "girth_ft": 44,
+   "girth_note": "about 44 ft",
+   "age_text": "no figure given in the article",
+   "age_lo": null,
+   "age_hi": null,
+   "churchyard": false,
+   "girth_m": 13.41,
+   "lat": 52.72519167,
+   "lon": -0.42124722,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 536,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Bowthorpe_Oak"
+  }
+ ],
+ "fam": {
+  "Fortingall Yew": {
+   "name": "Fortingall Yew",
+   "species": "yew",
+   "place": "Fortingall, Perthshire",
+   "article": "Fortingall Yew",
+   "girth_ft": 56,
+   "girth_note": "56 ft, measured in 1771; the trunk has since split",
+   "age_text": "2,000 to 3,000 years in some estimates; Forestry and Land Scotland consider it 5,000",
+   "age_lo": 2000,
+   "age_hi": 5000,
+   "churchyard": true,
+   "girth_m": 17.07,
+   "lat": 56.59823,
+   "lon": -4.05093,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 683,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Fortingall_Yew"
+  },
+  "Llangernyw Yew": {
+   "name": "Llangernyw Yew",
+   "species": "yew",
+   "place": "Llangernyw, Conwy",
+   "article": "Llangernyw Yew",
+   "girth_m": 10.75,
+   "girth_note": "10.75 m at ground level",
+   "age_text": "4,000 to 5,000 years on the churchyard certificate; an alternative view is about 1,500",
+   "age_lo": 1500,
+   "age_hi": 5000,
+   "churchyard": true,
+   "lat": 53.192333,
+   "lon": -3.685068,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 430,
+   "in_osm": false,
+   "source": "https://en.wikipedia.org/wiki/Llangernyw_Yew"
+  },
+  "Crowhurst Yew": {
+   "name": "Crowhurst Yew",
+   "species": "yew",
+   "place": "Crowhurst, Surrey",
+   "article": "Crowhurst Yew",
+   "girth_ft": 32,
+   "girth_note": "32 ft at 4 ft high, measured in 2013",
+   "age_text": "thought to be about 4,000 years",
+   "age_lo": 4000,
+   "age_hi": 4000,
+   "churchyard": true,
+   "girth_m": 9.75,
+   "lat": 51.20938889,
+   "lon": -0.0105,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 390,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Crowhurst_Yew"
+  },
+  "Ashbrittle Yew": {
+   "name": "Ashbrittle Yew",
+   "species": "yew",
+   "place": "Ashbrittle, Somerset",
+   "article": "Ashbrittle Yew",
+   "girth_note": "not given as a girth",
+   "age_text": "believed to be over 3,000 years",
+   "age_lo": 3000,
+   "age_hi": 3000,
+   "churchyard": true,
+   "lat": 50.983723,
+   "lon": -3.351592,
+   "coord_source": "OpenStreetMap node/7763446085",
+   "mitchell_years": null,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Ashbrittle_Yew"
+  },
+  "Defynnog Yew": {
+   "name": "Defynnog Yew",
+   "species": "yew",
+   "place": "Defynnog, Powys",
+   "article": "Defynnog Yew",
+   "girth_note": "not given as a figure",
+   "age_text": "3,018 years by one assessment; more probably around 2,500",
+   "age_lo": 2500,
+   "age_hi": 3018,
+   "churchyard": true,
+   "lat": 51.93972222,
+   "lon": -3.56472222,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": null,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Defynnog_Yew"
+  },
+  "Ankerwycke Yew": {
+   "name": "Ankerwycke Yew",
+   "species": "yew",
+   "place": "near Wraysbury, Berkshire",
+   "article": "Ankerwycke Yew",
+   "girth_m": 8.0,
+   "girth_note": "8 m at 0.3 m high",
+   "age_text": "at least 1,400 years, perhaps as much as 2,500",
+   "age_lo": 1400,
+   "age_hi": 2500,
+   "churchyard": false,
+   "lat": 51.44475,
+   "lon": -0.55651,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 320,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Ankerwycke_Yew"
+  },
+  "Major Oak": {
+   "name": "Major Oak",
+   "species": "oak",
+   "place": "Sherwood Forest, Nottinghamshire",
+   "article": "Major Oak",
+   "girth_ft": 33,
+   "girth_note": "33 ft in 1999",
+   "age_text": "between 800 and 1,200 years",
+   "age_lo": 800,
+   "age_hi": 1200,
+   "churchyard": false,
+   "girth_m": 10.06,
+   "lat": 53.20463889,
+   "lon": -1.07244444,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 402,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Major_Oak"
+  },
+  "Bowthorpe Oak": {
+   "name": "Bowthorpe Oak",
+   "species": "oak",
+   "place": "Manthorpe, near Bourne, Lincolnshire",
+   "article": "Bowthorpe Oak",
+   "girth_ft": 44,
+   "girth_note": "about 44 ft",
+   "age_text": "no figure given in the article",
+   "age_lo": null,
+   "age_hi": null,
+   "churchyard": false,
+   "girth_m": 13.41,
+   "lat": 52.72519167,
+   "lon": -0.42124722,
+   "coord_source": "Wikipedia article",
+   "mitchell_years": 536,
+   "in_osm": true,
+   "source": "https://en.wikipedia.org/wiki/Bowthorpe_Oak"
+  }
+ },
+ "famous_in_osm": 7,
+ "fam_ratio": {
+  "min": 2.9283,
+  "max": 11.6279,
+  "n": 4
+ },
+ "wikidata": {
+  "n": 90,
+  "found": 48,
+  "tagged": 34,
+  "share": 0.5333
+ },
+ "ex": {
+  "Queen Elizabeth Oak": {
+   "name": "Queen Elizabeth Oak",
+   "girth": 13.18,
+   "years": 527,
+   "county": "West Sussex",
+   "place": "Lodsworth",
+   "forest": null,
+   "church_m": 1668,
+   "lat": 50.9961,
+   "lon": -0.7006
+  },
+  "'Cowdray Colossus' Chestnut": {
+   "name": "'Cowdray Colossus' Chestnut",
+   "girth": 12.5,
+   "years": 500,
+   "county": "West Sussex",
+   "place": "Lodsworth",
+   "forest": null,
+   "church_m": 1510,
+   "lat": 50.9984,
+   "lon": -0.696
+  },
+  "Majesty - the Fredville Oak": {
+   "name": "Majesty - the Fredville Oak",
+   "girth": 12.36,
+   "years": 494,
+   "county": "Kent",
+   "place": "Frogham",
+   "forest": null,
+   "church_m": 1228,
+   "lat": 51.2154,
+   "lon": 1.231
+  },
+  "Big Belly Oak": {
+   "name": "Big Belly Oak",
+   "girth": 11.18,
+   "years": 447,
+   "county": "Wiltshire",
+   "place": "Cadley",
+   "forest": "Savernake Forest",
+   "church_m": 393,
+   "lat": 51.4004,
+   "lon": -1.7051
+  },
+  "King of Limbs": {
+   "name": "King of Limbs",
+   "girth": 10.8,
+   "years": 432,
+   "county": "Wiltshire",
+   "place": "The Warren",
+   "forest": "Savernake Forest",
+   "church_m": 1428,
+   "lat": 51.3926,
+   "lon": -1.6524
+  },
+  "Cathedral Oak": {
+   "name": "Cathedral Oak",
+   "girth": 10.4,
+   "years": 416,
+   "county": "Wiltshire",
+   "place": "Cadley",
+   "forest": "Savernake Forest",
+   "church_m": 1433,
+   "lat": 51.4105,
+   "lon": -1.7051
+  },
+  "Capon Tree": {
+   "name": "Capon Tree",
+   "girth": 9.74,
+   "years": 389,
+   "county": "Scottish Borders",
+   "place": "Jedburgh",
+   "forest": null,
+   "church_m": 1373,
+   "lat": 55.4623,
+   "lon": -2.5537
+  },
+  "Craigends Yew": {
+   "name": "Craigends Yew",
+   "girth": 8.86,
+   "years": 354,
+   "county": "Renfrewshire",
+   "place": "Craigends",
+   "forest": null,
+   "church_m": 1345,
+   "lat": 55.8626,
+   "lon": -4.5264
+  },
+  "Knightwood Oak": {
+   "name": "Knightwood Oak",
+   "girth": null,
+   "years": null,
+   "county": "Hampshire",
+   "place": "Allum Green",
+   "forest": "New Forest",
+   "church_m": 2870,
+   "lat": 50.8574,
+   "lon": -1.6245
+  },
+  "Major Oak": {
+   "name": "Major Oak",
+   "girth": null,
+   "years": null,
+   "county": "Nottinghamshire",
+   "place": "Edwinstowe",
+   "forest": "Sherwood Forest",
+   "church_m": 1077,
+   "lat": 53.2047,
+   "lon": -1.0725
+  },
+  "Fortingall Yew": {
+   "name": "Fortingall Yew",
+   "girth": null,
+   "years": null,
+   "county": "Perth and Kinross",
+   "place": "Fortingall",
+   "forest": null,
+   "church_m": 22,
+   "lat": 56.5982,
+   "lon": -4.0509
+  },
+  "Old Man of Calke": {
+   "name": "Old Man of Calke",
+   "girth": 9.0,
+   "years": 360,
+   "county": "Derbyshire",
+   "place": "Calke",
+   "forest": null,
+   "church_m": 831,
+   "lat": 52.8023,
+   "lon": -1.4631
+  },
+  "Mottisfont Oak": {
+   "name": "Mottisfont Oak",
+   "girth": 11.5,
+   "years": 460,
+   "county": "Hampshire",
+   "place": "Mottisfont",
+   "forest": null,
+   "church_m": 1102,
+   "lat": 51.0478,
+   "lon": -1.5287
+  },
+  "Oak at the Gate of the Dead": {
+   "name": "Oak at the Gate of the Dead",
+   "girth": 10.0,
+   "years": 400,
+   "county": "Shropshire",
+   "place": "Bronygarth",
+   "forest": null,
+   "church_m": 2353,
+   "lat": 52.9314,
+   "lon": -3.0953
+  }
+ },
+ "places_n": 16467,
+ "retrieved": "28 October 2026"
+}
