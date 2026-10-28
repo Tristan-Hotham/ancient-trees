@@ -1,0 +1,173 @@
+<!-- wp:paragraph -->
+<p><em>Some of Britain's trees were already old when the Normans arrived. I went looking for them in the open map of the world, OpenStreetMap, and found {{counts.notable|int}} notable trees: mostly oaks, a cluster of churchyard yews, a few giants in old royal forests, and a great deal of evidence about the people who map trees.</em></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://tristan-hotham.github.io/ancient-trees/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23729650">Read the paper</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:paragraph -->
+<p>In the churchyard at Fortingall in Perthshire stands a yew that Forestry and Land Scotland reckon is {{fam.Fortingall Yew.age_hi|int}} years old. Other estimates are a more modest {{fam.Fortingall Yew.age_lo|int}} to 3,000 years. Nobody can be sure, because the heart of a hollow yew rotted away long ago, and with it the rings you would need to count. In 1771 someone measured its trunk at 56 feet round, about {{fam.Fortingall Yew.girth_m|f1}} metres.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Britain is unusually rich in trees like this. So I wanted to map them: where the big old trees are, which species they are, why so many ancient yews stand by churches, and whether the medieval royal forests left more of them behind. The obvious source, the Woodland Trust's Ancient Tree Inventory, is not open for reuse, so I did not use it. Instead I used only open data: OpenStreetMap, Wikidata and Wikipedia. That turned out to be a study of two things at once, the trees and the mappers.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">A map of enthusiasm</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>OpenStreetMap holds {{counts.osm_trees_extract|int}} trees in the UK with a name, a girth, an age or a similar tag. Almost all are street and park trees imported from council surveys. Only {{counts.notable|int}} are what I call notable: named, tagged as a landmark, natural monument, ancient or veteran tree, or with a believable girth of 3 metres or more. {{counts.old_sign|int}} of them show a sign of great age.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_map.png|Map of Britain and Northern Ireland dotted with notable trees from OpenStreetMap, coloured brown for oaks, dark green for yews, orange for sweet chestnuts and grey where the species is not recorded, with bigger dots for bigger girths. Most dots are in England, thickest in the south; Wales and Scotland have few. Green stars mark famous ancient trees such as the Fortingall Yew, the Llangernyw Yew and the Major Oak.|Every notable tree in OpenStreetMap, by species and girth. Stars: famous ancient trees described on Wikipedia.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Look closely and the map is lumpy in a way real trees are not. {{grid.top10_share|pct0}} of the notable trees fall in just ten of the {{grid.squares|int}} ten-kilometre squares that have any. The busiest, around {{grid.top1_place|raw}} near Barnsley, holds {{grid.top1_n|int}}, nearly all of them unnamed trees of unrecorded species tagged as "landmarks". Northumberland has {{habits.top.1.n|int}} more of the same. Across Britain, {{habits.share|pct0}} of the notable trees are like that. Wales, home to some of Britain's most famous yews, has just {{country.Wales.n|int}} notable trees on the open map.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_regions.png|Horizontal bar chart of notable trees by region. The West Midlands, South East, London and South West have over 200 each; Wales has {{country.Wales.n|int}} and Northern Ireland {{country.Northern Ireland.n|int}}. Darker segments show the trees with a sign of great age.|Notable trees in OpenStreetMap by region, and those with a sign of great age (dark). This measures mapping effort as much as trees.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Even the famous trees are patchy. Of the {{wikidata.n|int}} UK trees that Wikidata lists as remarkable or heritage trees, I could find {{wikidata.found|int}} on OpenStreetMap. The Llangernyw Yew in Conwy, which Wikipedia says may be over 4,000 years old, is not in my extract as a named tree at all. So everything below comes with a warning: this is a map of where people have looked.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Mostly oaks</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Where the species is recorded, oaks dominate: {{sp.oak.n|int}} trees, {{sp.oak.share|pct0}} of the known total and {{sp.oak.old_share|pct0}} of those with a sign of great age. They also own the biggest girths. The Queen Elizabeth Oak near Lodsworth in West Sussex is tagged at {{big.Queen Elizabeth Oak.girth|f2}} metres round; Majesty, the Fredville Oak in Kent, at {{big.Majesty - the Fredville Oak.girth|f2}}. A sweet chestnut nearby at Cowdray, the Cowdray Colossus, comes in at {{big.'Cowdray Colossus' Chestnut.girth|f1}}.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_species.png|Bar chart of species among notable trees with a known species. Oaks are far ahead at {{sp.oak.n|int}} trees, followed by giant redwoods, other conifers, yews and beeches.|Species of notable trees where known (pale), and of those with a sign of great age (dark).}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>The runner-up among the old-looking trees is a surprise: giant redwoods, {{sp.giant redwoods.old|int}} of them with a big girth or a monument tag. They are huge, but they are newcomers from California. Size is not age.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The trees by the church door</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Yews are different. Of the {{church.yew_n|int}} yews in my extract, {{church.yew_share|pct0}} stand within {{church.m|int}} metres of a church or chapel. For every other kind of tree the figure is {{church.other_share|pct1}}. A yew is {{church.ratio|f1}} times as likely as other trees to be in or by a churchyard, and among the notable yews the share is {{church.notable_yew_share|pct0}}.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_church.png|Bar chart of the share of trees within 50 metres of a place of worship, by species. Yews stand out at {{church.yew_share|pct0}}; every other group is under 5%, most around 1%.|Share of OpenStreetMap trees within {{church.m|int}} m of a Christian place of worship, by species.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>And it is the old churches. {{church.yew_kind.anglican or catholic|int}} of the {{church.yew_within|int}} churchyard yews are nearest an Anglican, Church in Wales or Catholic church; only {{church.yew_kind.nonconformist or other|int}} are nearest a chapel of another denomination, though such chapels are about a third of the places of worship on the map. Five of the six famous ancient yews I took from Wikipedia are in churchyards. Why yews and churches go together is an old argument, and these data cannot settle it. What they do show is that old yews survive where the ground has been a churchyard for a very long time.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:pullquote -->
+<figure class="wp-block-pullquote"><blockquote><p>A yew is {{church.ratio|f1}} times as likely as any other tree to stand by a church.</p></blockquote></figure>
+<!-- /wp:pullquote -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">The king's forests</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>After 1066 the Norman kings put great tracts of land under forest law to protect their deer, and at its height, Wikipedia notes, a third of southern England was royal forest. Within {{forest.km|int}} km of the {{forest.n_forests|int}} royal forest points in Wikidata, which cover {{forest.land_share|pct1}} of the land, lie {{forest.old_share|pct1}} of the trees with a sign of great age. That is about {{forest.old_ratio_land|f1}} times their share of the land, but only {{forest.old_in|int}} trees, and {{fo_top2_old|int}} of them are in the New Forest and Savernake. Savernake, still a forest, has three of the biggest oaks on the map: the Big Belly Oak, the King of Limbs and the Cathedral Oak, all over 10 metres round.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_forest.png|Three bars: land area {{forest.land_share|pct1}}, notable trees {{forest.notable_share|pct1}}, trees with a sign of great age {{forest.old_share|pct1}}, all within 5 km of a former royal forest point.|Near the old royal forests: share of land, of notable trees and of trees with a sign of great age.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How old is a big tree?</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Foresters often use Alan Mitchell's rule of thumb: an open-grown tree adds about {{girth.mitchell_cm|f1}} cm (an inch) of girth a year. By that rule a girth of 5 metres means about {{girth.y5|int}} years and 10 metres about {{girth.y10|int}}. {{girth.ge10|int}} notable trees on the open map are 10 metres round or more.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_girth.png|Bar chart of notable trees by girth band from 3 to 4 metres up to 10 metres and more, with Mitchell's rough age under each band. Counts run from {{girth_bands.0.n|int}} trees at 3 to 4 metres to {{girth_bands.5.n|int}} at 10 metres or more; oaks are a large share of the biggest.|Credible girths of notable trees, with a rough age by Mitchell's rule. Dark: oaks.}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>For the truly ancient the rule collapses. The Llangernyw Yew is {{fam.Llangernyw Yew.girth_m|f2}} metres round at ground level, which by Mitchell's rule makes it about {{fam.Llangernyw Yew.mitchell_years|int}} years old. Its churchyard certificate says 4,000 to 5,000. The Major Oak in Sherwood, {{fam.Major Oak.girth_m|f2}} metres round in 1999, comes out at about {{fam.Major Oak.mitchell_years|int}} years against the 800 to 1,200 usually quoted. Old trees slow down, shed limbs and hollow out. A big girth tells you a tree is old, not how old.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:image {"sizeSlug":"full"} -->
+<figure class="wp-block-image size-full">{{IMG|b_famous.png|Chart comparing two age estimates for eight famous trees. Dots for Mitchell's rule sit between about 300 and 700 years; bars for the ages stated on Wikipedia stretch from 800 years for the Major Oak to 5,000 for the Fortingall and Llangernyw yews.|Age from girth by Mitchell's rule (dots) against the ages stated on Wikipedia (bars).}}</figure>
+<!-- /wp:image -->
+
+<!-- wp:heading -->
+<h2 class="wp-block-heading">How I did this</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>I took every OpenStreetMap tree in the UK with a name, denotation, age, heritage, Wikidata or girth tag, via the QLever query service. I kept trees with a real name (not just "Oak"), a landmark, natural monument, ancient or veteran tag, an age, a Wikidata link or a believable girth of 3 metres or more. Girths were cleaned hard: I dropped survey defaults repeated across whole streets, bare numbers on otherwise empty trees, and anything over 9 metres unless the tree was named or tagged as a monument. A tree is "in a churchyard" if it is within {{church.m|int}} metres of a mapped church; "near a royal forest" if it is within {{forest.km|int}} km of the point Wikidata gives for one. The full method and every caveat are in the paper, and the code and data are on GitHub.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>If your favourite old tree is missing from the interactive map, that is the point: it has not been mapped yet. You could change that.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://tristan-hotham.github.io/ancient-trees/">Explore the interactive version</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://doi.org/10.5281/zenodo.23729650">Read the paper</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="https://github.com/Tristan-Hotham/ancient-trees">Data and code</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:heading {"level":3} -->
+<h3 class="wp-block-heading">Notes and sources</h3>
+<!-- /wp:heading -->
+
+<!-- wp:list -->
+<ul class="wp-block-list"><!-- wp:list-item -->
+<li>Trees, places of worship and deer parks: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a>, Open Database Licence, retrieved {{retrieved|raw}} via <a href="https://qlever.cs.uni-freiburg.de">QLever</a>.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Royal forests and remarkable trees: <a href="https://www.wikidata.org">Wikidata</a> (CC0).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Famous trees, forest law and veteran trees: English Wikipedia, <a href="https://en.wikipedia.org/wiki/Fortingall_Yew">Fortingall Yew</a>, <a href="https://en.wikipedia.org/wiki/Llangernyw_Yew">Llangernyw Yew</a>, <a href="https://en.wikipedia.org/wiki/Major_Oak">Major Oak</a>, <a href="https://en.wikipedia.org/wiki/Royal_forest">Royal forest</a>, <a href="https://en.wikipedia.org/wiki/Veteran_tree">Veteran tree</a> and others (CC BY-SA 4.0).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Places: <a href="https://www.ordnancesurvey.co.uk/products/os-open-names">OS Open Names</a>, contains OS data © Crown copyright and database right 2026 (Open Government Licence v3.0).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Mitchell's rule: Alan Mitchell, A Field Guide to the Trees of Britain and Northern Europe (Collins, 1974).</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>Not used: the <a href="https://ati.woodlandtrust.org.uk">Woodland Trust Ancient Tree Inventory</a>, which is not open for reuse.</li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</li>
+<!-- /wp:list-item --></ul>
+<!-- /wp:list -->

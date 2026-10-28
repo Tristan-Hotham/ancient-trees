@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Britain's Oldest Trees</title>
+<meta name="description" content="Where are Britain's oldest trees? I mapped the {{counts.notable|int}} notable trees in OpenStreetMap: oaks, churchyard yews, royal forest giants, and how far a tree's girth tells you its age.">
+<meta property="og:title" content="Where are Britain's oldest trees?">
+<meta property="og:description" content="{{counts.notable|int}} notable trees in OpenStreetMap, {{counts.old_sign|int}} with signs of great age. Yews hug churches, oaks dominate, and the map shows mappers as much as trees.">
+<meta property="og:image" content="https://tristan-hotham.github.io/ancient-trees/header.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+/* Pale paper. Bark brown = oak. Yew green. Chestnut. Beech olive. Redwood red. Sage = other species. Stone = species unknown. */
+:root{
+  --bg:#F3F1E6; --panel:#E8E6D6; --fg:#25291E; --muted:#636955; --rule:#D8D6C3; --card:#FAF9F2; --border:#C3C1A6;
+  --leaf:#4E7D32; --leafl:#A9C68E; --oak:#7A4E2A; --yew:#1F5A3A; --chest:#B5702A; --beech:#8F8A2C; --red:#A2402C; --oth:#7E9C86; --unk:#B4B09C; --ink:#2F4A6B; --sea:#ECEBDF;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#181A14; --panel:#22251C; --fg:#E9EBDD; --muted:#A7AC96; --rule:#353A2C; --card:#1E2118; --border:#474D3B;
+  --leaf:#8DC064; --leafl:#4D6B37; --oak:#C9925F; --yew:#5FB083; --chest:#E09A4E; --beech:#C8C25A; --red:#E0745C; --oth:#9BB9A3; --unk:#77746A; --ink:#8FB0D8; --sea:#141611; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#181A14; --panel:#22251C; --fg:#E9EBDD; --muted:#A7AC96; --rule:#353A2C; --card:#1E2118; --border:#474D3B;
+  --leaf:#8DC064; --leafl:#4D6B37; --oak:#C9925F; --yew:#5FB083; --chest:#E09A4E; --beech:#C8C25A; --red:#E0745C; --oth:#9BB9A3; --unk:#77746A; --ink:#8FB0D8; --sea:#141611; color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.62 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));overflow-x:hidden}
+.wrap{max-width:680px;margin:0 auto;padding-block:28px 64px}
+.wrap .bleed{width:min(1080px,calc(100vw - 32px));margin-left:calc((100% - min(1080px,100vw - 32px))/2);margin-right:0}
+a{color:inherit;text-decoration-color:var(--leaf);text-underline-offset:3px}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--yew);color:var(--bg);padding:5px 8px;font-weight:500}
+header.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end;border-bottom:6px double var(--fg);padding-bottom:22px;margin-top:18px}
+h1{font:900 clamp(46px,10vw,84px)/.92 var(--display);letter-spacing:-.02em;margin:0;font-variation-settings:"SOFT" 50;color:var(--fg)}
+h1 em{font-style:normal;color:var(--oak)}
+.mark{width:clamp(92px,21vw,170px);height:auto;display:block}
+.dek{grid-column:1/-1;font-size:21px;line-height:1.42;margin:8px 0 0;max-width:46ch}
+.byline{font:400 13px/1.4 var(--mono);color:var(--muted);margin-top:14px}
+h2{font:800 34px/1.04 var(--display);letter-spacing:-.01em;margin:52px 0 10px;text-wrap:balance}
+h2 .n{font:500 13px/1 var(--mono);color:var(--leaf);display:block;letter-spacing:.1em;margin-bottom:10px}
+h3{font:600 20px/1.25 var(--display);margin:28px 0 6px}
+p{margin:0 0 16px}
+.lede::first-letter{font:900 72px/.8 var(--display);float:left;margin:6px 10px 0 0;color:var(--oak)}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 8px}
+.stats div{background:var(--card);padding:14px 12px}
+.stats b{display:block;font:900 clamp(28px,6vw,40px)/1 var(--display);color:var(--fg)}
+.stats b.o{color:var(--oak)}.stats b.y{color:var(--yew)}.stats b.l{color:var(--leaf)}
+.stats span{font:400 12px/1.35 var(--mono);color:var(--muted);display:block;margin-top:6px}
+@media (max-width:600px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.figure{margin:26px 0 30px}
+.fig-h{font:600 19px/1.25 var(--display);margin:0 0 4px}
+.fig-sub{font:400 13px/1.45 var(--mono);color:var(--muted);margin:0 0 12px}
+.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:10px}
+.chart{width:100%;position:relative}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--mono);fill:var(--fg)}
+.lab{font-size:12px}.lab.m{fill:var(--muted)}.lab.b{font-weight:500}.lab.s{font-size:11px}
+.tip{position:absolute;pointer-events:none;background:var(--fg);color:var(--bg);font:400 12px/1.45 var(--mono);padding:8px 10px;border-radius:3px;max-width:270px;z-index:1000;transform:translate(-50%,calc(-100% - 12px));display:none}
+.tip b{font-weight:500}
+.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 10px}
+.btn{font:500 12px/1 var(--mono);background:var(--card);color:var(--fg);border:1px solid var(--border);border-radius:3px;padding:8px 10px;cursor:pointer;min-height:36px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn.sp[aria-pressed="false"]{opacity:.5;text-decoration:line-through}
+.btn.sp[aria-pressed="true"]{background:var(--card);color:var(--fg);border-color:var(--fg)}
+.btn i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.btn:focus-visible,input:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
+.search{position:relative;display:flex;gap:8px;margin:0 0 10px;flex-wrap:wrap}
+.search input{font:400 14px/1 var(--mono);padding:9px 10px;border:1px solid var(--border);background:var(--card);color:var(--fg);border-radius:3px;flex:1 1 220px;min-width:0}
+.sugg{position:absolute;left:0;top:42px;z-index:1002;background:var(--card);border:1px solid var(--border);border-radius:3px;list-style:none;margin:0;padding:4px 0;width:min(420px,100%);display:none;font:400 13px/1.35 var(--mono);box-shadow:0 4px 14px rgba(0,0,0,.12)}
+.sugg li{padding:7px 10px;cursor:pointer}.sugg li:hover,.sugg li.on{background:var(--panel)}
+.sugg li small{color:var(--muted)}
+.mapgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:820px){.mapgrid{grid-template-columns:1fr}}
+#map{height:clamp(440px,74vh,680px);border:1px solid var(--border);background:var(--sea);border-radius:2px;z-index:0}
+.legend{display:flex;gap:6px 14px;flex-wrap:wrap;font:400 12px/1.3 var(--mono);color:var(--muted);margin-top:8px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+.side{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--card);border:1px solid var(--border);border-left:4px solid var(--leaf);padding:12px 14px;font:400 13px/1.5 var(--mono)}
+.card.empty{border-left-color:var(--border);color:var(--muted)}
+.card b.t{font:600 18px/1.2 var(--display);display:block;margin-bottom:6px}
+.card dl{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;margin:6px 0 8px}
+.card dt{color:var(--muted)}.card dd{margin:0;overflow-wrap:anywhere}
+.card ol{margin:6px 0 0;padding-left:20px}.card ol li{margin-bottom:4px;cursor:pointer}
+.pill{display:inline-block;font:500 11px/1 var(--mono);padding:4px 7px;border-radius:10px;color:#fff;margin:0 4px 4px 0}
+.pull{font:600 26px/1.25 var(--display);border-left:6px solid var(--yew);padding:4px 0 4px 18px;margin:30px 0}
+.note{background:var(--panel);border:1px solid var(--rule);padding:14px 16px;font-size:16px;margin:22px 0}
+.note h3{margin-top:0}
+.note.warn{border-left:6px solid var(--oak)}
+table.t{width:100%;border-collapse:collapse;font:400 13px/1.35 var(--mono)}
+table.t th{text-align:left;font-weight:500;color:var(--muted);border-bottom:2px solid var(--fg);padding:6px 8px 6px 0;vertical-align:bottom}
+table.t td{border-bottom:1px solid var(--rule);padding:7px 8px 7px 0;vertical-align:top}
+table.t td.num,table.t th.num{text-align:right}
+.tablewrap{overflow-x:auto;max-height:520px;overflow-y:auto;border-bottom:1px solid var(--rule)}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0}
+.cta a{font:500 13px/1 var(--mono);text-decoration:none;border:1px solid var(--fg);padding:11px 14px;border-radius:3px}
+.cta a.p{background:var(--yew);border-color:var(--yew);color:var(--bg)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 18px;padding:0;list-style:none}
+.chips li{font:400 12.5px/1.3 var(--mono);border:1px solid var(--border);background:var(--card);padding:7px 9px;border-radius:14px;cursor:pointer}
+.chips li b{color:var(--oak);font-weight:500}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:18px 0;font:400 12.5px/1.4 var(--mono)}
+.flow div{background:var(--card);border:1px solid var(--border);padding:12px}
+.flow b{display:block;font:900 30px/1 var(--display);margin-bottom:6px}
+@media (max-width:600px){.flow{grid-template-columns:1fr}}
+footer{border-top:6px double var(--fg);margin-top:56px;padding-top:16px;font:400 13px/1.55 var(--mono);color:var(--muted)}
+footer p{margin:0 0 10px}
+.theme{position:fixed;right:12px;bottom:12px;z-index:1001}
+.leaflet-container{font:400 12px/1.4 var(--mono);background:var(--sea)}
+.leaflet-tooltip{font:400 12px/1.4 var(--mono)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--card) 85%,transparent)!important;color:var(--muted)!important;font-size:10px}
+.leaflet-control-attribution a{color:var(--fg)!important}
+.leaflet-bar a{background:var(--card);color:var(--fg);border-bottom-color:var(--border)}
+.leaflet-bar a:hover{background:var(--panel)}
+.leaflet-bar{border:1px solid var(--border)!important}
+.famous-icon{width:18px;height:18px}
+@media print{.theme,.controls{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="kicker"><b>Data study</b><span>OpenStreetMap × Wikipedia</span><span>Britain and Northern Ireland</span></div>
+<header class="hero">
+  <h1>Where are Britain's <em>oldest trees?</em></h1>
+  <svg class="mark" viewBox="-100 -100 200 200" aria-hidden="true"><g id="heroMark"></g></svg>
+  <p class="dek">Some of Britain's trees were already old when the Normans arrived. I mapped every notable tree that volunteers have put on OpenStreetMap, {{counts.notable|int}} of them, to ask where the big old ones stand, which species they are, why so many ancient yews are in churchyards, and how much a tree's girth can tell you about its age.</p>
+</header>
+<div class="byline">Dr Tristan Hotham, Independent researcher · October 2026 · Data: OpenStreetMap contributors; Wikidata; English Wikipedia; OS Open Names</div>
+
+<div class="stats">
+  <div><b>{{counts.notable|int}}</b><span>notable trees in OpenStreetMap: named, tagged as a landmark or monument, or 3 m or more round</span></div>
+  <div><b class="o">{{counts.old_sign|int}}</b><span>show a sign of great age: a girth of 3 m or more, or tagged ancient, veteran or a natural monument</span></div>
+  <div><b class="y">{{church.notable_yew_share|pct0}}</b><span>of notable yews stand within {{church.m|int}} m of a church; {{church.notable_all_share|pct0}} of all notable trees do</span></div>
+  <div><b class="l">{{grid.top10_share|pct0}}</b><span>of the notable trees are in just 10 of the {{grid.squares|int}} ten-kilometre squares that have any</span></div>
+</div>
+
+<p class="lede">In the churchyard at Fortingall in Perthshire stands a yew that Forestry and Land Scotland reckon is {{fam.Fortingall Yew.age_hi|int}} years old. Other estimates are a more modest {{fam.Fortingall Yew.age_lo|int}} to 3,000 years. Nobody really knows, because the heart of a hollow yew has long since rotted away and with it the rings you would need to count. When its girth was measured in 1771 it was 56 feet round, about {{fam.Fortingall Yew.girth_m|f1}} metres.</p>
+<p>Britain is unusually rich in very old trees, partly because so much of its landscape was kept as deer park, royal forest, wood pasture and churchyard for centuries. But where exactly are they? The best inventory, the Woodland Trust's Ancient Tree Inventory, is not open for reuse, so I have not used it. Instead I asked what the open data know: OpenStreetMap, the volunteer map of the world, plus Wikidata and Wikipedia. The answer is part natural history and part portrait of the people who map trees.</p>
+
+<div class="note warn">
+  <h3>Read this first: these are mapped trees, not all trees</h3>
+  <p>OpenStreetMap shows trees where volunteers have chosen to map them. A county with hundreds of dots may simply have one keen mapper; a county with none may be full of ancient oaks. The Woodland Trust's Ancient Tree Inventory holds far more records, but its data are not openly licensed for reuse, so this study does not use or reproduce them. Every pattern below is about the {{counts.notable|int}} trees in the open map, and I say how far each one can be trusted.</p>
+</div>
+
+<h2><span class="n">01 · The map</span>Britain's notable trees, as the open map knows them</h2>
+<p>Each dot is a notable tree in OpenStreetMap, coloured by species where the mapper recorded one and sized by its girth where a credible girth is tagged. Dark rings mark trees with a sign of great age. Stars are eight famous ancient trees described on Wikipedia. Search for a town or village to see the nearest notable trees, or tap a dot.</p>
+<div class="figure bleed">
+  <div class="controls" id="modes" role="group" aria-label="Which trees to show">
+    <button class="btn" data-m="all" aria-pressed="true">All {{counts.notable|int}} notable trees</button>
+    <button class="btn" data-m="old" aria-pressed="false">Signs of great age ({{counts.old_sign|int}})</button>
+    <button class="btn" data-m="church" aria-pressed="false">Within {{church.m|int}} m of a church</button>
+    <button class="btn" data-m="forest" aria-pressed="false">Near a royal forest</button>
+  </div>
+  <div class="controls" id="spf" role="group" aria-label="Species filters"></div>
+  <div class="search"><input id="q" placeholder="Find a town, village or tree, e.g. Fortingall" aria-label="Find a place or tree" autocomplete="off"><button class="btn" id="go">Show</button><ul class="sugg" id="sugg" role="listbox"></ul></div>
+  <div class="mapgrid">
+    <div>
+      <div id="map" role="application" aria-label="Map of notable trees in OpenStreetMap coloured by species"></div>
+      <div class="legend" id="legend"></div>
+    </div>
+    <div class="side">
+      <div class="card empty" id="card">Tap a dot or a star, or search for a place, to see its trees.</div>
+      <div class="fig-h" style="margin-top:4px">The biggest girths on the map</div>
+      <div class="fig-sub" style="margin:0">Named trees with a credible girth tag</div>
+      <ul class="chips" id="bigChips" style="margin-top:0;max-height:330px;overflow:auto"></ul>
+    </div>
+  </div>
+  <div class="src">Trees: © OpenStreetMap contributors (ODbL), natural=tree nodes in the United Kingdom with a name, a denotation of landmark, natural monument, ancient or veteran, an age, heritage or Wikidata tag, or a credible girth of 3 m or more. Famous trees: English Wikipedia. Royal forests: Wikidata (circles of {{forest.km|int}} km round the point Wikidata gives). Nearest place: OS Open Names.</div>
+</div>
+
+<h2><span class="n">02 · Mappers, not trees</span>A map of enthusiasm</h2>
+<p>My extract of OpenStreetMap holds {{counts.osm_trees_extract|int}} trees in the United Kingdom with a name, girth, age or similar tag. Almost all of them, {{counts.extract_age_class|int}}, are street and park trees imported from council surveys with an age class such as "mature" or "young". Only {{counts.notable|int}} pass my filter for a notable tree. Of these, {{counts.named|int}} have a name, {{counts.natural_monument|int}} are tagged as a natural monument, {{counts.landmark|int}} as a landmark and {{counts.girth3|int}} have a credible girth of 3 m or more.</p>
+<div class="figure">
+  <div class="fig-h">Notable trees by region</div>
+  <div class="fig-sub">Pale bar: notable trees. Dark bar: those with a sign of great age.</div>
+  <div class="chart" id="regions"></div>
+  <div class="src">Region of the nearest OS Open Names populated place; Northern Ireland by location on the island of Ireland.</div>
+</div>
+<p>The pattern is lumpy in a way that real trees are not. {{grid.top10_share|pct0}} of all the notable trees fall in just ten 10 km squares of the National Grid, and the busiest single square, around {{grid.top1_place|raw}} near Barnsley, holds {{grid.top1_n|int}}. That is not a Yorkshire forest of giants: {{habits.top.0.n|int}} unnamed trees of unrecorded species in Barnsley are tagged as "landmarks", as are {{habits.top.1.n|int}} in Northumberland. In Coventry, {{habits.top.4.n|int}} unnamed trees carry the natural monument tag. Across Britain, {{habits.n|int}} notable trees ({{habits.share|pct0}}) are unnamed trees of unknown species flagged in this way: the habits of a handful of mappers.</p>
+<p>Wales, home to some of Britain's most famous yews, has just {{country.Wales.n|int}} notable trees on the open map; Scotland has {{country.Scotland.n|int}} and Northern Ireland {{country.Northern Ireland.n|int}}, against {{country.England.n|int}} in England. And even the stars are patchy: of the {{wikidata.n|int}} trees in Wikidata described as remarkable or heritage trees in the UK, I could find {{wikidata.found|int}} ({{wikidata.share|pct0}}) on OpenStreetMap within 150 m of the Wikidata point. The famous Llangernyw Yew in Conwy, which Wikipedia says may be over 4,000 years old, does not appear as a named tree in my extract at all.</p>
+<p class="pull">The open map of old trees is a map of enthusiasm: it shows where people have gone out to look.</p>
+
+<h2><span class="n">03 · Which trees</span>Mostly oaks</h2>
+<p>Only {{counts.species_known|int}} of the notable trees ({{counts.species_known_share|pct0}}) have a species, either tagged or plain from their name ("the Wortley Oak"). Among those, the oak dominates: {{sp.oak.n|int}} trees, {{sp.oak.share|pct0}} of the known total, and {{sp.oak.old_share|pct0}} of the known-species trees with a sign of great age.</p>
+<div class="figure">
+  <div class="fig-h">Species of notable trees, where known</div>
+  <div class="fig-sub">Share of the {{counts.species_known|int}} notable trees with a known species (pale) and of the {{species_known_old|int}} of them with a sign of great age (dark).</div>
+  <div class="chart" id="species"></div>
+  <div class="src">Species from the species, taxon or genus tag, or failing that from the tree's name. Sycamore and maples are counted together, as are birch, alder, willow and poplar.</div>
+</div>
+<p>Oaks are the classic old tree of English parks and hedgerows, and they include the biggest girths on the map: the Queen Elizabeth Oak near Lodsworth in West Sussex is tagged at {{big.Queen Elizabeth Oak.girth|f2}} m round, and Majesty, the Fredville Oak in Kent, at {{big.Majesty - the Fredville Oak.girth|f2}} m. Next to them stands a sweet chestnut, the Cowdray Colossus, at {{big.'Cowdray Colossus' Chestnut.girth|f1}} m. The second most common group of old-looking trees is a surprise: {{sp.giant redwoods.n|int}} giant redwoods, {{sp.giant redwoods.old|int}} of them with a girth of 3 m or more or a monument tag. They are big, but they are newcomers from California, planted in parks and estates from the nineteenth century onwards; a large girth is not the same thing as great age.</p>
+
+<h2><span class="n">04 · Churchyard yews</span>The trees by the church door</h2>
+<p>Yews are different. Of the {{church.yew_n|int}} yews anywhere in my OpenStreetMap extract, {{church.yew_within|int}} ({{church.yew_share|pct0}}) stand within {{church.m|int}} m of a mapped church or chapel. For every other kind of tree the figure is {{church.other_share|pct1}}. A yew is {{church.ratio|f1}} times as likely as other trees to be in or by a churchyard. Among the notable yews the link is stronger still: {{church.notable_yew_within|int}} of {{church.notable_yew_n|int}} ({{church.notable_yew_share|pct0}}).</p>
+<div class="figure">
+  <div class="fig-h">Share of trees within {{church.m|int}} m of a place of worship, by species</div>
+  <div class="fig-sub">All {{counts.osm_trees_extract|int}} trees in the OpenStreetMap extract, groups with 40 or more trees.</div>
+  <div class="chart" id="church"></div>
+  <div class="src">Distance from each tree to the centre of the nearest of {{counts.worship|int}} Christian places of worship in OpenStreetMap. Within 25 m: yews {{church.yew_share25|pct0}}, other trees {{church.other_share25|pct1}}; within 100 m: yews {{church.yew_share100|pct0}}, others {{church.other_share100|pct1}}.</div>
+</div>
+<p>The churchyard yews belong to the old parish churches, not to the chapels. Of the {{church.yew_within|int}} yews by a church, {{church.yew_kind.anglican or catholic|int}} are nearest an Anglican, Church in Wales or Catholic church and only {{church.yew_kind.nonconformist or other|int}} nearest a Methodist, Baptist or other chapel, although chapels make up {{church.worship_kind.nonconformist or other|int}} of the {{counts.worship|int}} places of worship on the map. Why yews and churches go together is an old argument: shelter, symbolism, a pre-Christian sacred site taken over by the church. These data cannot settle it. But they do show that, on the open map at least, old yews are found where the ground has been a churchyard for a very long time.</p>
+<p>Five of the six famous ancient yews I list from Wikipedia (Fortingall, Llangernyw, Crowhurst, Ashbrittle and Defynnog) are in churchyards. Wales stands out, if only faintly in the open data: {{church_country.Wales.with_yew|int}} of its {{church_country.Wales.churches|int}} mapped places of worship have a mapped yew within {{church.m|int}} m, {{church_country.Wales.per1000|f1}} per thousand, against {{church_country.England.per1000|f1}} per thousand in England. These are tiny numbers, and they say more about how few yews are mapped than about how many grow.</p>
+
+<h2><span class="n">05 · Royal forests</span>Hunting grounds and their giants</h2>
+<p>After 1066 the Norman kings put great tracts of land under forest law to protect deer and the "vert", the greenery that fed them. At the height of the system, Wikipedia notes, a third of southern England was royal forest. A forest was a legal zone, not necessarily a wood, but where land stayed as wood pasture and park for centuries, trees could grow old. Wikidata gives a point for {{forest.n_forests|int}} former royal forests in Britain. Circles of {{forest.km|int}} km round those points cover {{forest.land_share|pct1}} of the land.</p>
+<div class="figure">
+  <div class="fig-h">Near a former royal forest: share of land and share of trees</div>
+  <div class="fig-sub">Within {{forest.km|int}} km of a Wikidata royal forest point.</div>
+  <div class="chart" id="forestC"></div>
+</div>
+<p>Those circles hold {{forest.notable_share|pct1}} of the notable trees and {{forest.old_share|pct1}} of the trees with a sign of great age, about {{forest.old_ratio_land|f1}} times their share of the land. That is {{forest.old_in|int}} trees, so it is a hint rather than a finding, and {{fo_top2_old|int}} of the {{forest.old_in|int}} are in just two places. In Savernake Forest in Wiltshire, a royal forest that is still a forest, three mapped oaks are among the biggest girths on the open map: the Big Belly Oak ({{big.Big Belly Oak.girth|f2}} m), the King of Limbs ({{big.King of Limbs.girth|f1}} m) and the Cathedral Oak ({{big.Cathedral Oak.girth|f1}} m). In the New Forest stand the Knightwood Oak and a group of giant redwoods. The Major Oak in Sherwood Forest, which Wikipedia reports was found to have died in 2026, is on the map too.</p>
+<p>Deer parks, the private hunting enclosures of medieval lords, should be just as rich in old trees. But only {{counts.deer_park_polygons|int}} areas named as deer parks are drawn in OpenStreetMap, covering {{counts.deer_park_km2|f1}} km², and just {{counts.deer_park_trees|int}} notable trees fall inside them. That is a gap in the map, not in the landscape.</p>
+
+<h2><span class="n">06 · How old?</span>What girth can and cannot tell you</h2>
+<p>The only safe way to age a tree is to count its rings, and the oldest trees are usually hollow. Foresters use girth instead. Alan Mitchell's rule of thumb is that a tree with a full crown, growing in the open, adds about {{girth.mitchell_cm|f1}} cm (an inch) of girth a year, measured at 1.5 m above the ground. By that rule, a girth of 3 m means about {{girth.y3|int}} years, 5 m about {{girth.y5|int}} and 10 m about {{girth.y10|int}}. Wikipedia's article on veteran trees suggests 3 m at 1.5 m as one rough test for a veteran.</p>
+<div class="figure">
+  <div class="fig-h">Credible girths of notable trees, with Mitchell's rough age</div>
+  <div class="fig-sub">{{girth.ge3|int}} notable trees with a credible girth of 3 m or more. Darker part of each bar: oaks.</div>
+  <div class="chart" id="girthC"></div>
+  <div class="src">A girth is credible here if it parses to between 0.1 and 16.5 m, is not one of a block of ten or more identical values in the same square kilometre (survey defaults), is not a bare whole number on a tree with no other tags, and, above 9 m, belongs to a named or monument-tagged tree. Unitless numbers above 25 are read as centimetres.</div>
+</div>
+<p>Only {{girth.n|int}} notable trees carry a girth I trust, and {{girth.ge10|int}} of them measure 10 m or more. The rule of thumb is a good start for a tree a few centuries old. For the truly ancient it fails badly, because old trees slow down, lose their crowns and hollow out. Set the girths Wikipedia gives for famous trees against the ages it reports and the gap is enormous.</p>
+<div class="figure">
+  <div class="fig-h">Mitchell's rule against the ages claimed for famous trees</div>
+  <div class="fig-sub">Age in years. Dot: age from girth at {{girth.mitchell_cm|f1}} cm a year. Bar: the range of ages reported on Wikipedia.</div>
+  <div class="chart" id="famousC"></div>
+  <div class="src">Girths and ages as stated in the English Wikipedia articles (retrieved {{retrieved|raw}}); the girths were measured at different heights and dates, so the dots are rough. The Ashbrittle and Defynnog articles give no girth figure, and the Bowthorpe Oak article gives no age.</div>
+</div>
+<p>By Mitchell's rule the Llangernyw Yew, {{fam.Llangernyw Yew.girth_m|f2}} m round at ground level, would be about {{fam.Llangernyw Yew.mitchell_years|int}} years old; the churchyard certificate says 4,000 to 5,000. The Major Oak, {{fam.Major Oak.girth_m|f2}} m round in 1999, comes out at about {{fam.Major Oak.mitchell_years|int}} years, against the 800 to 1,200 usually quoted. A big girth tells you a tree is old. It cannot tell you how old, and for yews it barely tells you anything beyond "very".</p>
+<div class="figure">
+  <div class="fig-h">The biggest named trees on the open map</div>
+  <div class="tablewrap"><table class="t" id="bigT"></table></div>
+  <div class="src">Girth as tagged in OpenStreetMap; rough age by Mitchell's rule. Tap a row to see the tree on the map.</div>
+</div>
+
+<h2><span class="n">07 · Limits</span>What this can and cannot show</h2>
+<p><b>The map shows mappers.</b> Nearly everything here depends on who has mapped trees and how they tagged them. Counts by region measure enthusiasm as much as trees. The Woodland Trust's Ancient Tree Inventory and the Tree Register hold far richer records, but the Inventory is not open for reuse, so it is not used here.</p>
+<p><b>Tags are inconsistent.</b> "Landmark" and "natural monument" mean different things to different mappers, {{counts.extract_girth_bulk|int}} girth tags in my extract are survey defaults repeated across whole streets, and {{counts.extract_girth_tagged|int}} trees have any girth at all. My credibility rules remove the worst values but cannot check a measurement.</p>
+<p><b>Churchyards and forests are approximations.</b> A tree within {{church.m|int}} m of the centre of a church is usually in or beside its churchyard, but not always. Royal forest circles round a single Wikidata point are a crude stand-in for forest boundaries that changed over centuries.</p>
+<p><b>Ages are estimates.</b> Mitchell's rule is a rule of thumb. Woodland trees grow more slowly, young trees faster, and ancient trees much more slowly. Wikipedia's ages for famous trees are themselves disputed ranges.</p>
+
+<div class="note" id="method">
+  <h3>How I did this</h3>
+  <p><b>Trees.</b> OpenStreetMap natural=tree nodes inside the United Kingdom that have a name, a denotation, an age, a heritage, a Wikidata or a circumference tag, retrieved through the QLever endpoint on {{retrieved|raw}}: {{counts.osm_trees_extract|int}} trees. A tree is notable if it has a name (other than a fruit variety in an orchard), a denotation of landmark, natural monument, ancient or veteran, an age tag of veteran or a number of years of 100 or more, a Wikidata link, a heritage tag, or a credible girth of 3 m or more. It has a sign of great age if its credible girth is 3 m or more, it is tagged ancient or veteran or with an age, or it is a named or identified tree tagged as a natural monument. Species groups come from the species, taxon and genus tags, or from the name.</p>
+  <p><b>Places.</b> Country, region and county come from the nearest OS Open Names populated place; trees on the island of Ireland are in Northern Ireland. Places of worship: {{counts.worship|int}} Christian places of worship in OpenStreetMap, located at their centre point; Anglican, Church in Wales, Scottish Episcopal and Catholic denominations are grouped as the older churches. Royal forests: Wikidata items that are instances of royal forest, with a coordinate. Deer parks: OpenStreetMap areas named "deer park" or tagged as a historic deer park, of 0.05 km² or more.</p>
+  <p><b>Famous trees.</b> Eight ancient trees with English Wikipedia articles, with the girths and ages those articles state. Wikidata remarkable and heritage trees were checked against OpenStreetMap: found if an OSM tree carries their Wikidata link or lies within 150 m.</p>
+</div>
+<div class="cta">
+  <a class="p" href="https://github.com/Tristan-Hotham/ancient-trees">Data and code</a>
+  <a href="https://doi.org/10.5281/zenodo.23729650">Paper (Zenodo)</a>
+  <a href="https://tristan-hotham.github.io/saints-and-wells/">Saints and wells</a>
+  <a href="https://tristan-hotham.github.io/medieval-markets/">Market towns that failed</a>
+  <a href="https://blog.tristanhotham.com/">More history data posts</a>
+</div>
+
+<footer>
+  <p>Dr Tristan Hotham, researcher on social media, campaigns and politics. Independent researcher. ORCID <a href="https://orcid.org/0000-0003-4931-9349">0000-0003-4931-9349</a>.</p>
+  <p>Cite as: Hotham, T. (2026) Where are Britain's oldest trees? Notable, veteran and churchyard trees in OpenStreetMap. Zenodo. <a href="https://doi.org/10.5281/zenodo.23729650">https://doi.org/10.5281/zenodo.23729650</a></p>
+  <p>Trees, places of worship and deer parks: © OpenStreetMap contributors, available under the Open Database Licence (ODbL 1.0), retrieved via QLever. Royal forests and remarkable trees: Wikidata (CC0). Famous trees, forest law and veteran trees: English Wikipedia articles "Fortingall Yew", "Llangernyw Yew", "Crowhurst Yew", "Ashbrittle Yew", "Defynnog Yew", "Ankerwycke Yew", "Major Oak", "Bowthorpe Oak", "Royal forest" and "Veteran tree" (CC BY-SA 4.0). Places: OS Open Names, contains OS data © Crown copyright and database right 2026 (Open Government Licence v3.0). Coastline: Natural Earth (public domain). Base map tiles © Esri. Map library: Leaflet. The Woodland Trust Ancient Tree Inventory was not used because it is not open for reuse.</p>
+  <p>The tree data (data/trees.csv) contain OpenStreetMap data and are released under the ODbL 1.0. Other derived data, the text and the figures are released under CC BY-SA 4.0, because they draw on Wikipedia. Code is MIT.</p>
+  <p>I wrote the text, with drafting and editing assistance from Claude (Anthropic), which also helped prepare the analysis code. I reviewed and checked all text and results.</p>
+</footer>
+</div>
+<div class="tip" id="tip"></div>
+<button class="btn theme" id="theme" aria-label="Toggle dark mode">◐</button>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+/*DATA*/
+const NS = "http://www.w3.org/2000/svg";
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const css = v => getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const el = (t, a = {}, p) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); if (p) p.appendChild(e); return e; };
+const fmt = n => n == null ? "" : Math.round(n).toLocaleString("en-GB");
+const pc = (x, d = 0) => (x * 100).toFixed(d) + "%";
+const tip = document.getElementById("tip");
+function showTip(h, x, y) { tip.innerHTML = h; tip.style.display = "block"; const w = tip.offsetWidth; x = Math.max(w / 2 + 8, Math.min(innerWidth - w / 2 - 8, x)); tip.style.left = x + scrollX + "px"; tip.style.top = y + scrollY + "px"; }
+function hideTip() { tip.style.display = "none"; }
+function hover(node, h) { node.style.cursor = "pointer"; node.setAttribute("tabindex", "0"); const s = () => { const r = node.getBoundingClientRect(); showTip(h, r.left + r.width / 2, r.top); }; node.addEventListener("pointerenter", s); node.addEventListener("focus", s); node.addEventListener("pointerleave", hideTip); node.addEventListener("blur", hideTip); node.addEventListener("click", e => { e.stopPropagation(); s(); }); }
+document.addEventListener("click", hideTip);
+const redraws = [];
+function resp(box, render) { let last = 0; const go = (force) => { const w = Math.max(280, Math.round(box.clientWidth)); if (!force && Math.abs(w - last) < 4) return; last = w; box.innerHTML = ""; render(w, w < 560); }; new ResizeObserver(() => go()).observe(box); redraws.push(() => go(true)); go(); }
+const lbl = (svg, x, y, s, cls = "lab", anchor = "start") => { const t = el("text", { x, y, class: cls, "text-anchor": anchor }, svg); t.textContent = s; return t; };
+const R = D.R, P = D.P, C = P.cols, ROWS = P.rows.map(r => Object.fromEntries(C.map((c, i) => [c, r[i]])));
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const isDark = () => { const r = document.documentElement; return r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; };
+document.getElementById("theme").onclick = () => { const r = document.documentElement; const dark = isDark(); r.dataset.theme = dark ? "light" : "dark"; redraws.forEach(f => f()); window.__restyle && window.__restyle(); };
+const G = P.groups;
+/* colour classes: oak, yew, sweet chestnut, beech, giant redwoods, other known, unknown */
+const CLS = [["oak", "Oak", "--oak"], ["yew", "Yew", "--yew"], ["sweet chestnut", "Sweet chestnut", "--chest"], ["beech", "Beech", "--beech"], ["giant redwoods", "Giant redwood", "--red"], ["other", "Other species", "--oth"], ["unknown", "Species not recorded", "--unk"]];
+const clsOf = g => { const n = G[g]; const i = CLS.findIndex(c => c[0] === n); return i >= 0 && i < 5 ? i : (n === "unknown" ? 6 : 5); };
+const MITCH = R.girth.mitchell_cm;
+const ageOf = g => g ? Math.round(g * 100 / MITCH) : null;
+const kmH = (a, b, c, d) => { const R0 = 6371, t = Math.PI / 180, x = (d - b) * t * Math.cos((a + c) / 2 * t), y = (c - a) * t; return R0 * Math.sqrt(x * x + y * y); };
+
+/* hero mark: tree rings */
+(() => { const g = document.getElementById("heroMark");
+  for (let k = 0; k < 13; k++) { const r = 86 - k * 6.6, pts = []; for (let i = 0; i < 60; i++) { const a = i / 60 * Math.PI * 2, w = r * (1 + .035 * Math.sin(a * 3 + k) + .02 * Math.cos(a * 5 - k * 1.3)); pts.push(`${(Math.cos(a) * w - k * .9).toFixed(1)},${(Math.sin(a) * w + k * .5).toFixed(1)}`); }
+    el("polygon", { points: pts.join(" "), fill: k === 0 ? "var(--oak)" : "none", stroke: k === 0 ? "var(--oak)" : "var(--bg)", "stroke-width": k === 0 ? 0 : (k % 4 === 0 ? 2.2 : 1), opacity: k === 0 ? 1 : .7 }, g); }
+  el("path", { d: "M-6 -2 L4 20 L-2 46", stroke: "var(--bg)", "stroke-width": 2.5, fill: "none", opacity: .6 }, g);
+  el("circle", { cx: -12, cy: 7, r: 4, fill: "var(--bg)", opacity: .8 }, g);
+})();
+
+/* ===== map ===== */
+(() => {
+  const card = document.getElementById("card");
+  let mode = "all", show = CLS.map(() => 1), sel = null, focus = null;
+  if (!window.L) document.getElementById("map").innerHTML = '<p style="padding:16px;font:400 13px/1.5 var(--mono)">The map library did not load. The charts below still work.</p>';
+  const map = window.L ? L.map("map", { preferCanvas: true, scrollWheelZoom: false, zoomSnap: .25, minZoom: 4, maxZoom: 15 }).fitBounds([[50.0, -6.5], [58.6, 1.8]]) : null;
+  const CC = {}; const col = v => CC[v] || (CC[v] = css(v));
+  const spf = document.getElementById("spf");
+  spf.innerHTML = CLS.map((c, i) => `<button class="btn sp" data-i="${i}" aria-pressed="true"><i style="background:var(${c[2]})"></i>${c[1]}</button>`).join("");
+  spf.querySelectorAll("button").forEach(b => b.onclick = () => { const i = +b.dataset.i; show[i] = 1 - show[i]; b.setAttribute("aria-pressed", !!show[i]); draw(); });
+  document.querySelectorAll("#modes button").forEach(b => b.onclick = () => { mode = b.dataset.m; document.querySelectorAll("#modes button").forEach(x => x.setAttribute("aria-pressed", x === b)); draw(); });
+  const vis = r => show[clsOf(r.g)] && (mode === "all" || (mode === "old" && r.flags & 1) || (mode === "church" && r.flags & 2) || (mode === "forest" && r.flags & 4));
+  let tiles, lay, fz;
+  if (map) {
+    map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
+    map.on("focus", () => map.scrollWheelZoom.enable()); map.on("blur", () => map.scrollWheelZoom.disable());
+    const tileUrl = () => `https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/${isDark() ? "World_Dark_Gray_Base" : "World_Light_Gray_Base"}/MapServer/tile/{z}/{y}/{x}`;
+    tiles = L.tileLayer(tileUrl(), { maxZoom: 15, attribution: 'Tiles &copy; Esri · Trees &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (ODbL) · Wikidata · Wikipedia' }).addTo(map);
+    map.createPane("pts"); map.getPane("pts").style.zIndex = 430;
+    const rr = L.canvas({ pane: "pts", padding: .3, tolerance: 4 });
+    lay = L.layerGroup().addTo(map); fz = L.layerGroup().addTo(map);
+    const star = () => L.divIcon({ className: "", iconSize: [20, 20], iconAnchor: [10, 10], html: `<svg class="famous-icon" viewBox="-10 -10 20 20" width="20" height="20"><path d="M0-9 2.6-3 9-2.8 4-1 5.6 6.4 0 2.6-5.6 6.4-4 -1-9-2.8-2.6-3Z" fill="${col("--yew")}" stroke="${col("--bg")}" stroke-width="1.4"/></svg>` });
+    window.__draw = () => { lay.clearLayers(); fz.clearLayers();
+      const zs = map.getZoom() < 6 ? .7 : map.getZoom() < 8 ? .85 : 1;
+      if (mode === "forest") P.forests.forEach(f => L.circle([f[1], f[2]], { radius: R.forest.km * 1000, renderer: rr, color: col("--leaf"), weight: 1.2, dashArray: "4 3", fillColor: col("--leafl"), fillOpacity: .18, interactive: true }).bindTooltip(`<b>${esc(f[0])}</b> (royal forest, Wikidata point)<br>${f[3]} notable trees within ${R.forest.km} km, ${f[4]} with a sign of age`, { direction: "top" }).addTo(fz));
+      const order = ROWS.map((r, i) => i).sort((a, b) => (ROWS[b].girth || 0) - (ROWS[a].girth || 0));
+      order.forEach(i => { const r = ROWS[i]; if (!vis(r)) return; const c = col(CLS[clsOf(r.g)][2]); const old = r.flags & 1;
+        const rad = (r.girth ? Math.min(3.2 + r.girth * .75, 12) : 3.4) * zs;
+        L.circleMarker([r.lat, r.lon], { renderer: rr, radius: rad, weight: old ? 1.6 : .6, color: old ? col("--fg") : c, opacity: old ? .85 : .6, fillColor: c, fillOpacity: clsOf(r.g) === 6 ? .5 : .85 })
+          .bindTooltip(`<b>${esc(r.name || "Unnamed tree")}</b> · ${esc(G[r.g])}${r.girth ? " · " + r.girth.toFixed(1) + " m round" : ""}`, { direction: "top" }).on("click", () => showCard(i)).addTo(lay); });
+      P.famous.forEach((f, k) => L.marker([f.lat, f.lon], { icon: star(), keyboard: true, title: f.name }).on("click", () => showFamous(k)).bindTooltip(`<b>${esc(f.name)}</b> · famous ${esc(f.sp)}`, { direction: "top" }).addTo(fz));
+      if (sel != null) L.circleMarker([ROWS[sel].lat, ROWS[sel].lon], { renderer: rr, radius: 13, weight: 3, color: col("--ink"), fill: false, interactive: false }).addTo(lay);
+      if (focus) L.circleMarker(focus, { renderer: rr, radius: 7, weight: 2, color: col("--ink"), fillColor: col("--bg"), fillOpacity: 1, interactive: false }).addTo(lay);
+    };
+    window.__restyle = () => { for (const k in CC) delete CC[k]; tiles.setUrl(tileUrl()); window.__draw(); };
+    map.on("zoomend", () => window.__draw());
+    matchMedia("(prefers-color-scheme: dark)").addEventListener("change", window.__restyle);
+  }
+  function draw() { legend(); if (map) window.__draw(); }
+  function legend() { const n = ROWS.filter(vis).length;
+    document.getElementById("legend").innerHTML = `<span><b style="color:var(--fg)">${fmt(n)}</b> trees shown</span>` + CLS.map(c => `<span><i style="background:var(${c[2]})"></i>${c[1]}</span>`).join("") + `<span><i style="background:transparent;outline:1.6px solid var(--fg)"></i>sign of great age</span><span>Bigger dot: bigger girth</span><span style="color:var(--yew)">★ famous tree (Wikipedia)</span>`; }
+  function showCard(i) { sel = i; const r = ROWS[i], k = clsOf(r.g); card.className = "card"; card.style.borderLeftColor = `var(${CLS[k][2]})`;
+    const flags = [r.flags & 1 ? "sign of great age" : null, r.flags & 2 ? "by a church" : null, r.flags & 4 ? "near a royal forest" : null, r.flags & 16 ? "in a deer park" : null].filter(Boolean);
+    card.innerHTML = `<b class="t">${esc(r.name || "Unnamed tree")}</b><div style="color:var(--muted)">${esc(r.near ? "near " + r.near : "")}${r.county ? ", " + esc(r.county) : ""}</div>` +
+      `<div style="margin:8px 0 2px"><span class="pill" style="background:var(${CLS[k][2]})">${esc(G[r.g])}</span>${flags.map(f => `<span class="pill" style="background:var(--muted)">${f}</span>`).join("")}</div><dl>` +
+      (r.sp ? `<dt>Species tag</dt><dd><i>${esc(r.sp)}</i></dd>` : "") +
+      `<dt>Girth</dt><dd>${r.girth ? r.girth.toFixed(2) + " m (Mitchell's rule: about " + fmt(ageOf(r.girth)) + " years)" : "not tagged, or not credible"}</dd>` +
+      (r.den ? `<dt>Tagged as</dt><dd>${esc(r.den.replace("_", " "))}</dd>` : "") +
+      `<dt>Nearest church</dt><dd>${fmt(r.church_m)} m</dd>` + (r.forest ? `<dt>Royal forest</dt><dd>within ${R.forest.km} km of ${esc(r.forest)}</dd>` : "") +
+      `<dt>Map</dt><dd><a href="https://www.openstreetmap.org/${esc(r.osm)}" target="_blank" rel="noopener">OpenStreetMap ${esc(r.osm)}</a></dd></dl>`;
+    if (map) window.__draw(); }
+  function showFamous(k) { const f = P.famous[k]; sel = null; card.className = "card"; card.style.borderLeftColor = "var(--yew)";
+    card.innerHTML = `<b class="t">★ ${esc(f.name)}</b><div style="color:var(--muted)">${esc(f.place)}</div><dl><dt>Species</dt><dd>${esc(f.sp)}</dd><dt>Age</dt><dd>${esc(f.age)} (Wikipedia)</dd><dt>Girth</dt><dd>${esc(f.girth)}</dd></dl>`;
+    if (map) { map.flyTo([f.lat, f.lon], 11, { duration: reduce ? 0 : .7 }); window.__draw(); } }
+  function near(lat, lon, label) { focus = [lat, lon]; sel = null;
+    const d = ROWS.map((r, i) => [kmH(lat, lon, r.lat, r.lon), i]).sort((a, b) => a[0] - b[0]);
+    const top = d.slice(0, 6), old = d.find(x => ROWS[x[1]].flags & 1);
+    card.className = "card"; card.style.borderLeftColor = "var(--ink)";
+    card.innerHTML = `<b class="t">Near ${esc(label)}</b><div style="color:var(--muted)">The nearest notable trees on the open map</div><ol>` +
+      top.map(([km, i]) => `<li data-i="${i}">${esc(ROWS[i].name || "Unnamed " + (G[ROWS[i].g] === "unknown" ? "tree" : G[ROWS[i].g]))} · ${km.toFixed(km < 10 ? 1 : 0)} km</li>`).join("") + "</ol>" +
+      (old ? `<div style="margin-top:8px">Nearest with a sign of great age: <a href="#" data-i="${old[1]}">${esc(ROWS[old[1]].name || "unnamed " + G[ROWS[old[1]].g])}</a>, ${old[0].toFixed(old[0] < 10 ? 1 : 0)} km</div>` : "") +
+      `<div style="margin-top:8px;color:var(--muted)">No dot near you? That usually means nobody has mapped your local veterans yet.</div>`;
+    card.querySelectorAll("[data-i]").forEach(a => a.onclick = e => { e.preventDefault(); window.__show(+a.dataset.i); });
+    if (map) { map.flyTo([lat, lon], top[0][0] < 8 ? 11 : 9, { duration: reduce ? 0 : .7 }); window.__draw(); } }
+  window.__show = (i, zoom = true) => { focus = null; showCard(i); if (map && zoom) map.flyTo([ROWS[i].lat, ROWS[i].lon], 13, { duration: reduce ? 0 : .7 }); document.getElementById("map").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" }); };
+  /* search: named trees first, then towns and villages */
+  const q = document.getElementById("q"), sg = document.getElementById("sugg"); let opts = [], on = -1;
+  const named = ROWS.map((r, i) => [r.name, i]).filter(x => x[0]);
+  const run = o => { sg.style.display = "none"; if (!o) return; if (o.t === "tree") window.__show(o.i); else near(o.lat, o.lon, o.label); };
+  const suggest = () => { const s = q.value.trim().toLowerCase(); on = -1; if (s.length < 2) { sg.style.display = "none"; opts = []; return; }
+    const tr = named.filter(([n]) => n.toLowerCase().includes(s)).slice(0, 4).map(([n, i]) => ({ t: "tree", i, label: n, sub: G[ROWS[i].g] }));
+    const pl = P.places.filter(p => p[0].toLowerCase().startsWith(s)).sort((a, b) => a[0].length - b[0].length).slice(0, 8 - tr.length).map(p => ({ t: "place", lat: p[2], lon: p[3], label: p[0], sub: p[1] }));
+    opts = [...tr, ...pl]; if (!opts.length) { sg.style.display = "none"; return; }
+    sg.innerHTML = opts.map((o, k) => `<li role="option" data-k="${k}">${o.t === "tree" ? "🌳 " : ""}${esc(o.label)} <small>${esc(o.sub || "")}</small></li>`).join(""); sg.style.display = "block";
+    sg.querySelectorAll("li").forEach(li => li.onclick = () => { q.value = opts[+li.dataset.k].label; run(opts[+li.dataset.k]); }); };
+  q.addEventListener("input", suggest);
+  q.addEventListener("keydown", e => { const li = sg.querySelectorAll("li");
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") { e.preventDefault(); if (!li.length) return; on = (on + (e.key === "ArrowDown" ? 1 : -1) + li.length) % li.length; li.forEach((x, k) => x.classList.toggle("on", k === on)); }
+    if (e.key === "Enter") { e.preventDefault(); run(opts[on >= 0 ? on : 0]); }
+    if (e.key === "Escape") sg.style.display = "none"; });
+  document.getElementById("go").onclick = () => { if (!opts.length) suggest(); run(opts[0]); };
+  const bi = R.biggest.map(b => ROWS.findIndex(r => r.osm === b.osm));
+  const chips = document.getElementById("bigChips");
+  chips.innerHTML = R.biggest.map((b, k) => `<li data-i="${bi[k]}"><b>${esc(b.name)}</b> · ${b.girth.toFixed(1)} m</li>`).join("");
+  chips.querySelectorAll("li").forEach(li => li.onclick = () => window.__show(+li.dataset.i));
+  draw();
+})();
+
+/* ===== regions ===== */
+resp(document.getElementById("regions"), (W, nar) => {
+  const V = R.regions, m = { l: nar ? 112 : 170, r: 44, t: 4, b: 26 }, rowH = 26, Ht = V.length * rowH + m.t + m.b;
+  const mx = Math.ceil(Math.max(...V.map(v => v.n)) / 50) * 50;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Notable trees by region" }, document.getElementById("regions")), X = v => m.l + v / mx * (W - m.l - m.r);
+  for (let t = 0; t <= mx; t += 100) { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: Ht - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), Ht - 8, t, "lab m s", "middle"); }
+  V.forEach((v, i) => { const y = m.t + i * rowH; lbl(svg, m.l - 8, y + 17, nar ? v.region.replace("Yorkshire and the Humber", "Yorks & Humber").replace("Northern Ireland", "N. Ireland") : v.region, "lab s", "end");
+    const b = el("rect", { x: X(0), y: y + 4, width: X(v.n) - X(0), height: rowH - 8, fill: "var(--leafl)" }, svg);
+    el("rect", { x: X(0), y: y + 4, width: X(v.old) - X(0), height: rowH - 8, fill: "var(--oak)" }, svg);
+    hover(b, `<b>${esc(v.region)}</b><br>${v.n} notable trees, ${v.old} with a sign of great age<br>${v.oak} oaks, ${v.yew} yews`);
+    lbl(svg, X(v.n) + 5, y + 17, v.n, "lab s b"); });
+});
+
+/* ===== species ===== */
+resp(document.getElementById("species"), (W, nar) => {
+  const V = R.species.filter(s => s.group !== "other").slice(0, 12), m = { l: nar ? 120 : 190, r: 46, t: 4, b: 26 }, rowH = 30, Ht = V.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Species of notable trees" }, document.getElementById("species")), X = v => m.l + v / .6 * (W - m.l - m.r);
+  [0, .2, .4, .6].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: Ht - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), Ht - 8, pc(t), "lab m s", "middle"); });
+  V.forEach((v, i) => { const y = m.t + i * rowH; lbl(svg, m.l - 8, y + 19, nar ? v.group.replace("pines and other conifers", "other conifers").replace("birch, alder and willow", "birch, willow etc").replace("sycamore and maples", "sycamore, maples") : v.group, "lab s", "end");
+    const b = el("rect", { x: X(0), y: y + 4, width: X(v.share) - X(0), height: 11, fill: "var(--leafl)" }, svg);
+    el("rect", { x: X(0), y: y + 15, width: X(v.old_share) - X(0), height: 11, fill: v.group === "oak" ? "var(--oak)" : v.group === "yew" ? "var(--yew)" : "var(--muted)" }, svg);
+    hover(b, `<b>${esc(v.group)}</b><br>${v.n} notable trees (${pc(v.share)} of known)<br>${v.old} with a sign of great age (${pc(v.old_share)})${v.girth_max ? "<br>largest credible girth " + v.girth_max.toFixed(1) + " m" : ""}`);
+    lbl(svg, X(Math.max(v.share, v.old_share)) + 5, y + 19, v.n, "lab s b"); });
+});
+
+/* ===== churchyard ===== */
+resp(document.getElementById("church"), (W, nar) => {
+  const V = R.churchyard_by_group, m = { l: nar ? 120 : 190, r: 50, t: 4, b: 26 }, rowH = 24, Ht = V.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Share of trees within 50 metres of a church by species" }, document.getElementById("church")), X = v => m.l + v / .2 * (W - m.l - m.r);
+  [0, .05, .1, .15, .2].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: Ht - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), Ht - 8, pc(t), "lab m s", "middle"); });
+  V.forEach((v, i) => { const y = m.t + i * rowH, yew = v.group === "yew"; lbl(svg, m.l - 8, y + 16, nar ? v.group.replace("pines and other conifers", "other conifers").replace("birch, alder and willow", "birch, willow etc").replace("sycamore and maples", "sycamore, maples") : v.group, yew ? "lab s b" : "lab s", "end");
+    const b = el("rect", { x: X(0), y: y + 4, width: Math.max(1, X(v.within50) - X(0)), height: rowH - 8, fill: yew ? "var(--yew)" : "var(--unk)" }, svg);
+    hover(b, `<b>${esc(v.group)}</b><br>${fmt(v.n)} trees · ${pc(v.within50, 1)} within 50 m of a church<br>${pc(v.within25, 1)} within 25 m · ${pc(v.within100, 1)} within 100 m`);
+    lbl(svg, X(v.within50) + 5, y + 16, pc(v.within50, 1), yew ? "lab s b" : "lab s m"); });
+});
+
+/* ===== royal forest comparison ===== */
+resp(document.getElementById("forestC"), (W, nar) => {
+  const F = R.forest, V = [["Land area", F.land_share, "var(--unk)", `${fmt(F.land_km2)} km² of ${fmt(F.gb_km2)} km²`], ["Notable trees", F.notable_share, "var(--leafl)", `${F.notable_in} of ${fmt(R.counts.notable)}`], ["Sign of great age", F.old_share, "var(--oak)", `${F.old_in} of ${fmt(R.counts.old_sign)}`]];
+  const m = { l: nar ? 120 : 160, r: 120, t: 4, b: 26 }, rowH = 40, Ht = V.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Share of land, notable trees and old trees near royal forests" }, document.getElementById("forestC")), X = v => m.l + v / .06 * (W - m.l - m.r);
+  [0, .02, .04, .06].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: Ht - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), Ht - 8, pc(t), "lab m s", "middle"); });
+  V.forEach(([n, v, c, s], i) => { const y = m.t + i * rowH; lbl(svg, m.l - 8, y + 24, n, "lab s", "end");
+    const b = el("rect", { x: X(0), y: y + 8, width: X(v) - X(0), height: rowH - 16, fill: c }, svg); hover(b, `<b>${n}</b><br>${pc(v, 1)} · ${s}`);
+    lbl(svg, X(v) + 6, y + 24, `${pc(v, 1)} (${s.split(" of ")[0]})`, "lab s b"); });
+});
+
+/* ===== girth bands ===== */
+resp(document.getElementById("girthC"), (W, nar) => {
+  const V = R.girth_bands, m = { l: 40, r: 10, t: 20, b: 56 }, Ht = 270, svg = el("svg", { viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Credible girths of notable trees in bands with rough ages" }, document.getElementById("girthC"));
+  const mx = Math.ceil(Math.max(...V.map(v => v.n)) / 10) * 10, bw = (W - m.l - m.r) / V.length, Y = v => Ht - m.b - v / mx * (Ht - m.t - m.b);
+  for (let t = 0; t <= mx; t += 10) { el("line", { x1: m.l, x2: W - m.r, y1: Y(t), y2: Y(t), stroke: "var(--rule)" }, svg); lbl(svg, m.l - 6, Y(t) + 4, t, "lab m s", "end"); }
+  V.forEach((v, i) => { const x = m.l + i * bw;
+    const b = el("rect", { x: x + 6, y: Y(v.n), width: bw - 12, height: Y(0) - Y(v.n), fill: "var(--leafl)" }, svg);
+    el("rect", { x: x + 6, y: Y(v.oak), width: bw - 12, height: Y(0) - Y(v.oak), fill: "var(--oak)" }, svg);
+    hover(b, `<b>${v.lo} to ${v.hi === 17 ? "16.5" : v.hi} m</b><br>${v.n} trees, ${v.oak} of them oaks<br>Mitchell's rule: about ${v.years_lo} to ${v.hi === 17 ? "660" : v.years_hi} years`);
+    lbl(svg, x + bw / 2, Y(v.n) - 5, v.n, "lab s b", "middle");
+    lbl(svg, x + bw / 2, Ht - m.b + 16, v.hi === 17 ? "10 m+" : `${v.lo} to ${v.hi} m`, "lab s", "middle");
+    lbl(svg, x + bw / 2, Ht - m.b + 31, v.hi === 17 ? "400+ yrs" : `${v.years_lo} to ${v.years_hi}`, "lab s m", "middle"); });
+  lbl(svg, m.l, 10, "trees", "lab m s"); lbl(svg, W - m.r, Ht - 6, "girth, and rough age in years by Mitchell's rule", "lab m s", "end");
+});
+
+/* ===== famous trees: Mitchell vs claimed ===== */
+resp(document.getElementById("famousC"), (W, nar) => {
+  const V = R.famous, m = { l: nar ? 110 : 150, r: 16, t: 6, b: 30 }, rowH = 30, Ht = V.length * rowH + m.t + m.b;
+  const svg = el("svg", { viewBox: `0 0 ${W} ${Ht}`, role: "img", "aria-label": "Ages from Mitchell's rule compared with ages reported for famous trees" }, document.getElementById("famousC")), X = v => m.l + v / 5200 * (W - m.l - m.r);
+  [0, 1000, 2000, 3000, 4000, 5000].forEach(t => { el("line", { x1: X(t), x2: X(t), y1: m.t, y2: Ht - m.b, stroke: "var(--rule)" }, svg); lbl(svg, X(t), Ht - 10, nar ? (t / 1000) + "k" : fmt(t), "lab m s", "middle"); });
+  V.forEach((v, i) => { const y = m.t + i * rowH + rowH / 2; lbl(svg, m.l - 10, y + 4, nar ? v.name.replace(" Yew", "").replace(" Oak", " (oak)") : v.name, "lab s", "end");
+    if (v.age_lo != null) { const r = el("rect", { x: X(v.age_lo) - (v.age_lo === v.age_hi ? 3 : 0), y: y - 6, width: Math.max(6, X(v.age_hi) - X(v.age_lo)), height: 12, rx: 3, fill: v.species === "yew" ? "var(--yew)" : "var(--oak)", opacity: .45 }, svg);
+      hover(r, `<b>${esc(v.name)}</b><br>Wikipedia: ${esc(v.age_text)}`); }
+    if (v.mitchell_years != null) { const c = el("circle", { cx: X(v.mitchell_years), cy: y, r: 6, fill: v.species === "yew" ? "var(--yew)" : "var(--oak)", stroke: "var(--bg)", "stroke-width": 1.5 }, svg);
+      hover(c, `<b>${esc(v.name)}</b><br>girth ${esc(v.girth_note)}<br>Mitchell's rule: about ${fmt(v.mitchell_years)} years`); } });
+  lbl(svg, W - m.r, Ht - 10 + 14, "", "lab m s", "end");
+});
+
+/* ===== biggest table ===== */
+(() => { const t = document.getElementById("bigT");
+  t.innerHTML = `<thead><tr><th>Tree</th><th>Species</th><th>Near</th><th class="num">Girth (m)</th><th class="num">Mitchell (yrs)</th></tr></thead><tbody>` +
+    R.biggest.map(b => { const i = ROWS.findIndex(r => r.osm === b.osm); return `<tr data-i="${i}" style="cursor:pointer"><td>${esc(b.name)}</td><td>${esc(b.group)}</td><td>${esc(b.place || "")}, ${esc(b.county || "")}</td><td class="num">${b.girth.toFixed(2)}</td><td class="num">${fmt(b.years)}</td></tr>`; }).join("") + "</tbody>";
+  t.querySelectorAll("tbody tr").forEach(tr => tr.onclick = () => window.__show(+tr.dataset.i));
+})();
+</script>
+</body>
+</html>
